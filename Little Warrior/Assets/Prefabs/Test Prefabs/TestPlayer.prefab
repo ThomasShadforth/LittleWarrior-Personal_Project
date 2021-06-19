@@ -1,5 +1,142 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &867919654552015134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5568313803716107098}
+  - component: {fileID: 8946711819284442958}
+  m_Layer: 0
+  m_Name: AngleChecks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5568313803716107098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867919654552015134}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 78061161718851086}
+  - {fileID: 1046473612077892772}
+  m_Father: {fileID: 6309273667503886818}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8946711819284442958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867919654552015134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9a3342fd4c1494880c42d706f93f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ZRotation: 0
+--- !u!1 &4196097922244808665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1046473612077892772}
+  m_Layer: 0
+  m_Name: AngleCheck2
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1046473612077892772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196097922244808665}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.07999998, y: 0.05, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5568313803716107098}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6623981247783938907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6309273667503886818}
+  m_Layer: 0
+  m_Name: Misc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6309273667503886818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6623981247783938907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5568313803716107098}
+  m_Father: {fileID: 8772648460228264854}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7266319889816574643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78061161718851086}
+  m_Layer: 0
+  m_Name: AngleCheck1
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &78061161718851086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7266319889816574643}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.082000025, y: 0.05, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5568313803716107098}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8772648460228264849
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,6 +149,7 @@ GameObject:
   - component: {fileID: 8772648460228264855}
   - component: {fileID: 8772648460228264848}
   - component: {fileID: 8772648460228264875}
+  - component: {fileID: 2691334225514765007}
   - component: {fileID: 8772648460228264852}
   - component: {fileID: 8772648460228264853}
   m_Layer: 0
@@ -33,6 +171,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 8772648461744649927}
+  - {fileID: 6309273667503886818}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -139,37 +278,37 @@ MonoBehaviour:
     movementChange: {x: 0, y: 0}
   - AttackName: Punch
     nextLightAttack: 
+    nextHeavyAttack: Rising Uppercut
+    nextDownAttack: 
+    isUnlocked: 1
+    endOfAttackString: 0
+    willMoveHor: 1
+    willMoveVert: 0
+    attackDur: 0.2
+    canMoveWhileAttack: 0
+    movementChange: {x: 5, y: 0}
+  - AttackName: Kick
+    nextLightAttack: 
     nextHeavyAttack: 
     nextDownAttack: 
-    isUnlocked: 0
+    isUnlocked: 1
     endOfAttackString: 1
-    willMoveHor: 0
+    willMoveHor: 1
     willMoveVert: 0
-    attackDur: 0
+    attackDur: 0.2
     canMoveWhileAttack: 0
-    movementChange: {x: 0, y: 0}
-  - AttackName: 
+    movementChange: {x: 5, y: 0}
+  - AttackName: Rising Uppercut
     nextLightAttack: 
     nextHeavyAttack: 
     nextDownAttack: 
-    isUnlocked: 0
-    endOfAttackString: 0
-    willMoveHor: 0
-    willMoveVert: 0
-    attackDur: 0
+    isUnlocked: 1
+    endOfAttackString: 1
+    willMoveHor: 1
+    willMoveVert: 1
+    attackDur: 1
     canMoveWhileAttack: 0
-    movementChange: {x: 0, y: 0}
-  - AttackName: 
-    nextLightAttack: 
-    nextHeavyAttack: 
-    nextDownAttack: 
-    isUnlocked: 0
-    endOfAttackString: 0
-    willMoveHor: 0
-    willMoveVert: 0
-    attackDur: 0
-    canMoveWhileAttack: 0
-    movementChange: {x: 0, y: 0}
+    movementChange: {x: 2, y: 5}
   - AttackName: 
     nextLightAttack: 
     nextHeavyAttack: 
@@ -193,6 +332,21 @@ MonoBehaviour:
     attackDur: 0
     canMoveWhileAttack: 0
     movementChange: {x: 0, y: 0}
+--- !u!114 &2691334225514765007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8772648460228264849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e095426690cc7c4287b81d5c1339301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angleCheck1: {fileID: 78061161718851086}
+  angleCheck2: {fileID: 1046473612077892772}
+  groundAngle: 0
 --- !u!50 &8772648460228264852
 Rigidbody2D:
   serializedVersion: 4
@@ -264,7 +418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8772648461744649920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.055, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0661, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8772648460228264854}

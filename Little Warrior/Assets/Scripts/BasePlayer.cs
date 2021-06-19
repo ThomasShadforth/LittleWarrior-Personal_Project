@@ -26,7 +26,7 @@ public class BasePlayer : MonoBehaviour
 
     float JumpTime;
 
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     [Header("Movement")]
     public float speed;
@@ -43,11 +43,13 @@ public class BasePlayer : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerCombat = GetComponent<CombatSystem>();
+        moveInput.x = 1;
     }
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(playerFeet.position, detectRadius, whatIsGround);
+        isGrounded = Physics2D.OverlapCircle(new Vector3(playerFeet.position.x, playerFeet.position.y - .5f, playerFeet.position.z), detectRadius, whatIsGround);
+        
     }
     void Update()
     {
@@ -173,6 +175,10 @@ public class BasePlayer : MonoBehaviour
         }
     }
 
+    public void adjustPlayerAngle(float newZAngle)
+    {
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, newZAngle);
+    }
 
     private void LateUpdate()
     {
@@ -182,10 +188,14 @@ public class BasePlayer : MonoBehaviour
             {
                 rb.velocity = new Vector2(speed + extraSpeed, rb.velocity.y);
             }
+            else if (isAttacking && !playerCombat.currentAttack.canMoveWhileAttack)
+            {
+                rb.velocity = new Vector2(extraSpeed, rb.velocity.y);
+            }
         }
         else
         {
-            rb.AddForce(new Vector2(knockbackForce.x, knockbackForce.y));
+            rb.velocity = new Vector2(knockbackForce.x, knockbackForce.y);
             knockbackTime -= Time.deltaTime;
         }
     }

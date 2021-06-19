@@ -26,7 +26,7 @@ public class EnemyAi : MonoBehaviour
     public bool FollowEnabled;
     public bool directionLook;
 
-    bool isGrounded;
+    public bool isGrounded;
     [SerializeField]
     Transform enemyFeet;
 
@@ -123,5 +123,10 @@ public class EnemyAi : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void enemyAngleAdjust(float zRotation)
+    {
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, zRotation);
     }
 }

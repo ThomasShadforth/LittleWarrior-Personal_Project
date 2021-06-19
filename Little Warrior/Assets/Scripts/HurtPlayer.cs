@@ -33,7 +33,7 @@ public class HurtPlayer : MonoBehaviour
                 isOnRight = true;
             }
 
-            player.applyKnockback(isOnRight, 2f, .2f);
+            player.applyKnockback(isOnRight, 10f, .05f);
         }
     }
 }
