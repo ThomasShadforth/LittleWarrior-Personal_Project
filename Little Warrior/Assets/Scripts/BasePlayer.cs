@@ -185,7 +185,7 @@ public class BasePlayer : MonoBehaviour
         }
         else
         {
-            rb.velocity = new Vector2(knockbackForce.x, knockbackForce.y);
+            rb.AddForce(new Vector2(knockbackForce.x, knockbackForce.y));
             knockbackTime -= Time.deltaTime;
         }
     }
