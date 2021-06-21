@@ -62,6 +62,16 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (GamePause.gamePaused)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            return;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
         if(FollowEnabled && TargetInDistance())
         {
             pathFollow();

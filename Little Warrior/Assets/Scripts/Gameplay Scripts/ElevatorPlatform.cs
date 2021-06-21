@@ -22,6 +22,11 @@ public class ElevatorPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GamePause.gamePaused)
+        {
+            return;
+        }
+
         if (!ActivateByPlayer)
         {
             movePlatform();

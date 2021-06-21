@@ -23,6 +23,10 @@ public class CombatSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GamePause.gamePaused)
+        {
+            return;
+        }
         checkForAttackInput();
 
         if(attackTime > 0)

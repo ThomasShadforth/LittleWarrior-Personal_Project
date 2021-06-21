@@ -39,8 +39,20 @@ public class BasePlayer : MonoBehaviour
 
     CombatSystem playerCombat;
     float extraSpeed;
+
+    public static BasePlayer instance;
+
     void Start()
     {
+        if(instance != null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
         rb = GetComponent<Rigidbody2D>();
         playerCombat = GetComponent<CombatSystem>();
         moveInput.x = 1;
@@ -48,11 +60,20 @@ public class BasePlayer : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GamePause.gamePaused)
+        {
+            return;
+        }
         isGrounded = Physics2D.OverlapCircle(new Vector3(playerFeet.position.x, playerFeet.position.y - .5f, playerFeet.position.z), detectRadius, whatIsGround);
         
     }
     void Update()
     {
+        if (GamePause.gamePaused)
+        {
+            return;
+        }
+
         //Start of Horizontal movement
 
         if (Input.GetButton("Left"))
@@ -182,6 +203,17 @@ public class BasePlayer : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (GamePause.gamePaused)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            return;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        
         if (knockbackTime <= 0)
         {
             if (!isAttacking || playerCombat.currentAttack.canMoveWhileAttack)
