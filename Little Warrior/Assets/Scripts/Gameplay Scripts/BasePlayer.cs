@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BasePlayer : MonoBehaviour
 {
+    public bool facingRight;
 
     [Header("JumpValues")]
     public LayerMask whatIsGround;
@@ -56,6 +57,7 @@ public class BasePlayer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerCombat = GetComponent<CombatSystem>();
         moveInput.x = 1;
+        facingRight = true;
     }
 
     void FixedUpdate()
@@ -64,7 +66,8 @@ public class BasePlayer : MonoBehaviour
         {
             return;
         }
-        isGrounded = Physics2D.OverlapCircle(new Vector3(playerFeet.position.x, playerFeet.position.y - .5f, playerFeet.position.z), detectRadius, whatIsGround);
+        Vector3 feet = new Vector3(playerFeet.position.x, playerFeet.position.y - .5f, playerFeet.position.z);
+        isGrounded = Physics2D.OverlapCircle(feet, detectRadius, whatIsGround);
         
     }
     void Update()
@@ -75,9 +78,15 @@ public class BasePlayer : MonoBehaviour
         }
 
         //Start of Horizontal movement
+        
 
         if (Input.GetButton("Left"))
         {
+            if (facingRight)
+            {
+                facingRight = false;
+                changeLocalScale();
+            }
             moveInput.x = -1;
             if (speed > 0)
             {
@@ -96,8 +105,13 @@ public class BasePlayer : MonoBehaviour
                 }
             }
         }
-         else if (Input.GetButton("Right"))
+        else if (Input.GetButton("Right"))
         {
+            if (!facingRight)
+            {
+                facingRight = true;
+                changeLocalScale();
+            }
             moveInput.x = 1;
             if (speed < 0)
             {
@@ -230,5 +244,12 @@ public class BasePlayer : MonoBehaviour
             rb.velocity = new Vector2(knockbackForce.x, knockbackForce.y);
             knockbackTime -= Time.deltaTime;
         }
+    }
+
+    void changeLocalScale()
+    {
+        Vector3 scalar = transform.localScale;
+        scalar.x = -scalar.x;
+        transform.localScale = scalar;
     }
 }

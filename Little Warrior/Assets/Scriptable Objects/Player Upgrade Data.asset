@@ -12,4 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89eca2ce61a2b6f4ebf3248b67943346, type: 3}
   m_Name: Player Upgrade Data
   m_EditorClassIdentifier: 
-  upgrades: []
+  upgrades:
+  - upgradeName: Slide Kick
+    description: A fast-acting sweep attack that staggers enemies
+    isUnlocked: 0
+    unlockCost: 0
+    upgradeLevel: 0
+    upgradeTier:
+    - upgradeCost: 0
+  - upgradeName: Dive Kick
+    description: Descend quickly on enemies from above
+    isUnlocked: 0
+    unlockCost: 0
+    upgradeLevel: 0
+    upgradeTier:
+    - upgradeCost: 0

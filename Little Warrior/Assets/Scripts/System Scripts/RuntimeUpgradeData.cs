@@ -6,15 +6,21 @@ public class RuntimeUpgradeData : MonoBehaviour
 {
     public playerUpgradeSystem.PlayerUpgradeData originalData;
     public playerUpgradeSystem.playerUpgrade[] upgradeInfo;
-    void Start()
+
+    private void Awake()
     {
         upgradeInfo = originalData.upgrades;
 
-        for(int i = 0; i < upgradeInfo.Length; i++)
+        for (int i = 0; i < upgradeInfo.Length; i++)
         {
             upgradeInfo[i].upgradeLevel = 0;
             upgradeInfo[i].unlockCost = upgradeInfo[i].upgradeTier[upgradeInfo[i].upgradeLevel].upgradeCost;
         }
+    }
+
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame

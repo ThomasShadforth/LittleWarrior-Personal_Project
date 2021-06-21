@@ -20,6 +20,11 @@ public class UpgradeMenu : MonoBehaviour
         
     }
 
+    public void setDefaultSelection()
+    {
+
+    }
+
     public void selectUpgrade(int upgradeIndex)
     {
         //Insert the following within the block:
@@ -31,7 +36,6 @@ public class UpgradeMenu : MonoBehaviour
         upgradeName.text = "" + upgradeData.upgradeInfo[upgradeIndex].upgradeName;
         upgradeDesc.text = "" + upgradeData.upgradeInfo[upgradeIndex].description;
         upgradeCostText.text = "" + upgradeData.upgradeInfo[upgradeIndex].unlockCost.ToString();
-        
         //if the player has enough points for an upgrade, the text will be displayed normally
         //If not, then the button will be greyed out
 

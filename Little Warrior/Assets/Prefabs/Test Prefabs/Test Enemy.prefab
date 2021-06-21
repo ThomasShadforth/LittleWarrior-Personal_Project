@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5382314083209848597}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Misc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2185233732293162088}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AngleCheck1
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2032560202835679507}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AngleCheck2
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7100611095441007754}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyFeet
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -137,9 +137,10 @@ GameObject:
   - component: {fileID: 7100611096147088548}
   - component: {fileID: 7100611096147088574}
   - component: {fileID: 2556601827391105673}
-  m_Layer: 0
+  - component: {fileID: 3862177174404482992}
+  m_Layer: 9
   m_Name: Test Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,8 +307,8 @@ MonoBehaviour:
   jumpNodeHeightReq: 0.5
   jumpMod: 0.3
   jumpCheckOffset: 0.1
-  jumpEnabled: 1
-  FollowEnabled: 1
+  jumpEnabled: 0
+  FollowEnabled: 0
   directionLook: 0
   isGrounded: 0
   enemyFeet: {fileID: 7100611095441007754}
@@ -342,6 +343,19 @@ MonoBehaviour:
   angleCheck1: {fileID: 2185233732293162088}
   angleCheck2: {fileID: 2032560202835679507}
   groundAngle: 0
+--- !u!114 &3862177174404482992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100611096147088551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7483670e33485a44bbbf436a0db2ec80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beingKnocked: 0
 --- !u!1 &7100611096492252473
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,13 +366,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7100611096492252478}
   - component: {fileID: 7100611096492252479}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TestFist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7100611096492252478
 Transform:
   m_ObjectHideFlags: 0
@@ -398,7 +412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1451472164717904367}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AngleChecks
   m_TagString: Untagged
   m_Icon: {fileID: 0}

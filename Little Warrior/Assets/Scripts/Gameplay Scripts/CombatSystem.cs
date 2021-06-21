@@ -10,8 +10,11 @@ public class CombatSystem : MonoBehaviour
     float attackTime;
     float bonusSpeed;
     Rigidbody2D rb;
-
+    public float attackRadius;
     BasePlayer playerChar;
+    public Transform attackPoint;
+    bool isAttacking;
+    public LayerMask enemyLayer;
 
     void Start()
     {
@@ -37,6 +40,7 @@ public class CombatSystem : MonoBehaviour
         if(attackTime <= 0)
         {
             currentAttack = Attacks[0];
+            
             playerChar.setPlayerExtraSpeed(0f);
         }
     }
@@ -65,10 +69,15 @@ public class CombatSystem : MonoBehaviour
             {
                 if (attack.isUnlocked)
                 {
+                    isAttacking = true;
                     currentAttack = attack;
                     attackTime = currentAttack.attackDur;
 
+                    attackEnemy();
+
                     checkMovement();
+
+                    
 
                     if (currentAttack.endOfAttackString)
                     {
@@ -90,7 +99,7 @@ public class CombatSystem : MonoBehaviour
                 {
                     currentAttack = attack;
                     attackTime = currentAttack.attackDur;
-
+                    attackEnemy();
                     checkMovement();
 
                     if (currentAttack.endOfAttackString)
@@ -112,7 +121,7 @@ public class CombatSystem : MonoBehaviour
                 {
                     currentAttack = attack;
                     attackTime = currentAttack.attackDur;
-
+                    attackEnemy();
                     checkMovement();
 
                     if (currentAttack.endOfAttackString)
@@ -137,5 +146,25 @@ public class CombatSystem : MonoBehaviour
             rb.velocity = Vector2.up * currentAttack.movementChange.y;
         }
     }
+
+    public void attackEnemy()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, enemyLayer);
+
+        foreach(Collider2D detectedEnemy in hitEnemies)
+        {
+            HurtEnemy damagedEnemy = detectedEnemy.GetComponent<HurtEnemy>();
+            damagedEnemy.hurtEnemyFunc(currentAttack.knockback.willKnockback, currentAttack.damage, .01f, currentAttack.knockback.knockbackForce, rb.transform);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint != null)
+        {
+            Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+        }
+    }
+
 
 }
