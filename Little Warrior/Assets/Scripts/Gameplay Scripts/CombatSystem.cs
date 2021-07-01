@@ -21,6 +21,8 @@ public class CombatSystem : MonoBehaviour
         currentAttack = Attacks[0];
         rb = GetComponent<Rigidbody2D>();
         playerChar = GetComponent<BasePlayer>();
+
+        setUpAttackLinks();
     }
 
     // Update is called once per frame
@@ -42,6 +44,35 @@ public class CombatSystem : MonoBehaviour
             currentAttack = Attacks[0];
             
             playerChar.setPlayerExtraSpeed(0f);
+        }
+    }
+
+    public void removeEndOfString(string attackName)
+    {
+        for(int i = 0; i < Attacks.Length; i++)
+        {
+            if(Attacks[i].AttackName == attackName)
+            {
+                Attacks[i].endOfAttackString = false;
+                break;
+            }
+        }
+    }
+
+    public void setUpAttackLinks()
+    {
+        for(int i = Attacks.Length - 1; i >= 0; i--)
+        {
+            Debug.Log(i);
+            string nameOfAttack = Attacks[i].AttackName;
+
+            for(int j = Attacks.Length - 1; j >= 0; j--)
+            {
+                if(nameOfAttack == Attacks[j].nextLightAttack || nameOfAttack == Attacks[j].nextHeavyAttack)
+                {
+                    Attacks[i].previousAttackName = Attacks[j].AttackName;
+                }
+            }
         }
     }
 
@@ -97,6 +128,7 @@ public class CombatSystem : MonoBehaviour
             {
                 if (attack.isUnlocked)
                 {
+                    Debug.Log(attack.AttackName);
                     currentAttack = attack;
                     attackTime = currentAttack.attackDur;
                     attackEnemy();
@@ -106,6 +138,7 @@ public class CombatSystem : MonoBehaviour
                     {
                         currentAttack = Attacks[0];
                     }
+                    break;
                 }
             }
         }

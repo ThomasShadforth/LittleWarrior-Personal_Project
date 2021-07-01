@@ -16,6 +16,7 @@ MonoBehaviour:
   - upgradeName: Slide Kick
     description: A fast-acting sweep attack that staggers enemies
     isUnlocked: 0
+    isAttack: 1
     unlockCost: 0
     upgradeLevel: 0
     upgradeTier:
@@ -23,6 +24,7 @@ MonoBehaviour:
   - upgradeName: Dive Kick
     description: Descend quickly on enemies from above
     isUnlocked: 0
+    isAttack: 1
     unlockCost: 0
     upgradeLevel: 0
     upgradeTier:

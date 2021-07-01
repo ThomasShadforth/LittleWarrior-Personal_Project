@@ -40,7 +40,7 @@ public class BasePlayer : MonoBehaviour
 
     CombatSystem playerCombat;
     float extraSpeed;
-
+    public int upgradePoints;
     public static BasePlayer instance;
 
     void Start()

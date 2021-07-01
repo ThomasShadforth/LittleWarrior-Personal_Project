@@ -307,8 +307,8 @@ MonoBehaviour:
   jumpNodeHeightReq: 0.5
   jumpMod: 0.3
   jumpCheckOffset: 0.1
-  jumpEnabled: 0
-  FollowEnabled: 0
+  jumpEnabled: 1
+  FollowEnabled: 1
   directionLook: 0
   isGrounded: 0
   enemyFeet: {fileID: 7100611095441007754}

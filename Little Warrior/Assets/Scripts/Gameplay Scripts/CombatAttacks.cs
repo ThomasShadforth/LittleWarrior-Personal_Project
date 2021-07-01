@@ -16,6 +16,7 @@ public class CombatAttacks
     public string AttackName;
     public string nextLightAttack;
     public string nextHeavyAttack;
+    public string previousAttackName;
     public string nextDownAttack;
 
     [Header("Boolean Conditions")]
