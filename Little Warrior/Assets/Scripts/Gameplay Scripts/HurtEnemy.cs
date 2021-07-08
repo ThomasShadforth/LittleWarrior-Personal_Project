@@ -9,13 +9,13 @@ public class HurtEnemy : MonoBehaviour
     float knockDur;
     Rigidbody2D rb;
 
-    CinemachineVirtualCamera cineCam;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        cineCam = FindObjectOfType<CinemachineVirtualCamera>();
+        
     }
 
     // Update is called once per frame
@@ -49,24 +49,13 @@ public class HurtEnemy : MonoBehaviour
 
         //Add damage to enemy here
 
-        //Add screen shake here
-        shakeCamera(screenShakeIntensity);
+        
+        
         Invoke("DestroyEnemy", .7f);
         
     }
 
-    void shakeCamera(float shake)
-    {
-        StartCoroutine(shakeScreen(shake));
-    }
-
-    public IEnumerator shakeScreen(float noise)
-    {
-        CinemachineBasicMultiChannelPerlin cinemachineNoise = cineCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        cinemachineNoise.m_AmplitudeGain = noise;
-        yield return new WaitForSeconds(.6f);
-        cinemachineNoise.m_AmplitudeGain = 0f;
-    }
+    
 
     void DestroyEnemy()
     {

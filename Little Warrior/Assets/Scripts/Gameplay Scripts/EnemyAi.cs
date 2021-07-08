@@ -13,6 +13,8 @@ public class EnemyAi : MonoBehaviour
     public float jumpNodeHeightReq = .5f;
     public float jumpMod = .3f;
     public float jumpCheckOffset = .1f;
+    public float attackDistance = .2f;
+
 
     Path path;
     int currentWaypoint = 0;
@@ -20,11 +22,13 @@ public class EnemyAi : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
+    Animator animator;
 
     [Header("Custom Behaviour")]
     public bool jumpEnabled;
     public bool FollowEnabled;
     public bool directionLook;
+    public bool isAttacking;
 
     public bool isGrounded;
     [SerializeField]
@@ -36,7 +40,7 @@ public class EnemyAi : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-
+        animator = GetComponent<Animator>();
         InvokeRepeating("UpdatePath", 0f, .25f);
 
         
@@ -76,14 +80,23 @@ public class EnemyAi : MonoBehaviour
         {
             pathFollow();
         }
-        
 
-        
+
+        if (TargetInAttackRange())
+        {
+            isAttacking = true;
+            animator.SetBool("isAttacking", true);
+        }
     }
 
     void pathFollow()
     {
         if (path == null)
+        {
+            return;
+        }
+
+        if (isAttacking)
         {
             return;
         }
@@ -120,7 +133,34 @@ public class EnemyAi : MonoBehaviour
             currentWaypoint++;
         }
 
-        
+        if (directionLook)
+        {
+            if(rb.velocity.x > 0.05f)
+            {
+                Vector3 scalar = transform.localScale;
+                if(scalar.x < 0)
+                {
+                    scalar.x = -scalar.x;
+                }
+                transform.localScale = scalar;
+            } else if(rb.velocity.x < -0.05f)
+            {
+                Vector3 scalar = transform.localScale;
+                if(scalar.x > 0)
+                {
+                    scalar.x = -scalar.x;
+                }
+                transform.localScale = scalar;
+            }
+        }
+        if(rb.velocity.x != 0)
+        {
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
     }
 
     bool TargetInDistance()
@@ -135,8 +175,25 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
+    public bool TargetInAttackRange()
+    {
+        if(Vector2.Distance(rb.position, target.position) <= attackDistance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void enemyAngleAdjust(float zRotation)
     {
         transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, zRotation);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, activateDistance);
     }
 }

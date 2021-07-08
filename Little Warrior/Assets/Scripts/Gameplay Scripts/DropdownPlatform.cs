@@ -17,7 +17,7 @@ public class DropdownPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Down") && Input.GetKeyDown(KeyCode.Space) && isOnPlatform)
+        if(Input.GetButton("Down") && Input.GetKeyDown(KeyCode.Space) && isOnPlatform)
         {
             platCollider.enabled = false;
             if (!isOnPlatform)
@@ -31,6 +31,7 @@ public class DropdownPlatform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("ON PLAT");
             isOnPlatform = true;
         }
     }

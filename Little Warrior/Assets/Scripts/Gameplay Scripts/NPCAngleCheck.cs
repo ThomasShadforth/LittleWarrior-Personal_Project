@@ -29,7 +29,14 @@ public class NPCAngleCheck : MonoBehaviour
                 {
                     angle2 = Physics2D.Raycast(angleCheck2.position, Vector2.down, 7.0f, enemy.whatIsGround);
 
-                    groundAngle = Mathf.Atan2((angle1.point.y - angle2.point.y), (angle1.point.x - angle2.point.x)) * Mathf.Rad2Deg;
+                    if (enemy.transform.localScale.x == 1)
+                    {
+                        groundAngle = Mathf.Atan2((angle1.point.y - angle2.point.y), (angle1.point.x - angle2.point.x)) * Mathf.Rad2Deg;
+                    }
+                    else
+                    {
+                        groundAngle = Mathf.Atan2((angle2.point.y - angle1.point.y), (angle2.point.x - angle1.point.x)) * Mathf.Rad2Deg;
+                    }
 
 
 

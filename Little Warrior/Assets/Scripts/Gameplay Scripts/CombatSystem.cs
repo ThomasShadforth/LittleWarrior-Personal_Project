@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CombatSystem : MonoBehaviour
 {
@@ -14,14 +15,17 @@ public class CombatSystem : MonoBehaviour
     BasePlayer playerChar;
     public Transform attackPoint;
     bool isAttacking;
-    public LayerMask enemyLayer;
+    public LayerMask enemyLayer, objectsLayer;
+
+    CinemachineVirtualCamera cineCam;
+
 
     void Start()
     {
         currentAttack = Attacks[0];
         rb = GetComponent<Rigidbody2D>();
         playerChar = GetComponent<BasePlayer>();
-
+        cineCam = FindObjectOfType<CinemachineVirtualCamera>();
         setUpAttackLinks();
     }
 
@@ -63,7 +67,7 @@ public class CombatSystem : MonoBehaviour
     {
         for(int i = Attacks.Length - 1; i >= 0; i--)
         {
-            Debug.Log(i);
+            
             string nameOfAttack = Attacks[i].AttackName;
 
             for(int j = Attacks.Length - 1; j >= 0; j--)
@@ -102,6 +106,7 @@ public class CombatSystem : MonoBehaviour
                 {
                     isAttacking = true;
                     currentAttack = attack;
+                    
                     attackTime = currentAttack.attackDur;
 
                     attackEnemy();
@@ -115,6 +120,7 @@ public class CombatSystem : MonoBehaviour
                         currentAttack = Attacks[0];
                         return;
                     }
+                    break;
                 }
             }
         }
@@ -161,6 +167,8 @@ public class CombatSystem : MonoBehaviour
                     {
                         currentAttack = Attacks[0];
                     }
+
+                    break;
                 }
             }
         }
@@ -187,7 +195,18 @@ public class CombatSystem : MonoBehaviour
         foreach(Collider2D detectedEnemy in hitEnemies)
         {
             HurtEnemy damagedEnemy = detectedEnemy.GetComponent<HurtEnemy>();
-            damagedEnemy.hurtEnemyFunc(currentAttack.knockback.willKnockback, currentAttack.damage, .01f, currentAttack.knockback.knockbackForce, rb.transform);
+            
+            shakeCamera(.1f);
+
+        }
+
+        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, objectsLayer);
+
+        foreach(Collider2D detectedObject in hitObjects)
+        {
+            
+            DestructibleObject foundObject = detectedObject.GetComponent<DestructibleObject>();
+            foundObject.DamageObject(currentAttack.damage);
         }
     }
 
@@ -199,5 +218,18 @@ public class CombatSystem : MonoBehaviour
         }
     }
 
+
+    void shakeCamera(float shake)
+    {
+        StartCoroutine(shakeScreen(shake));
+    }
+
+    public IEnumerator shakeScreen(float noise)
+    {
+        CinemachineBasicMultiChannelPerlin cinemachineNoise = cineCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        cinemachineNoise.m_AmplitudeGain = noise;
+        yield return new WaitForSeconds(.6f);
+        cinemachineNoise.m_AmplitudeGain = 0f;
+    }
 
 }

@@ -40,7 +40,7 @@ public class ParallaxController : MonoBehaviour
 
             loopSpriteRenderer.drawMode = SpriteDrawMode.Tiled;
             loopSpriteRenderer.size = new Vector2(spriteSizeX * tileWidth, spriteSizeY);
-            transform.localScale = Vector3.one;
+            //transform.localScale = Vector3.one;
         }
     }
 

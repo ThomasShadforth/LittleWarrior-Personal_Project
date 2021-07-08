@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd999736d1e39fc48b0f815c7841fc8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facingRight: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -369,6 +370,7 @@ MonoBehaviour:
   playerFeet: {fileID: 8772648461744649927}
   rb: {fileID: 0}
   speed: 0
+  upgradePoints: 0
 --- !u!114 &8772648460228264875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +387,7 @@ MonoBehaviour:
   - AttackName: idle
     nextLightAttack: Punch
     nextHeavyAttack: Kick
+    previousAttackName: 
     nextDownAttack: Sweep Kick
     isUnlocked: 1
     endOfAttackString: 0
@@ -402,6 +405,7 @@ MonoBehaviour:
   - AttackName: Punch
     nextLightAttack: 
     nextHeavyAttack: Rising Uppercut
+    previousAttackName: 
     nextDownAttack: 
     isUnlocked: 1
     endOfAttackString: 0
@@ -419,6 +423,7 @@ MonoBehaviour:
   - AttackName: Kick
     nextLightAttack: 
     nextHeavyAttack: 
+    previousAttackName: 
     nextDownAttack: 
     isUnlocked: 1
     endOfAttackString: 1
@@ -436,6 +441,7 @@ MonoBehaviour:
   - AttackName: Rising Uppercut
     nextLightAttack: 
     nextHeavyAttack: 
+    previousAttackName: 
     nextDownAttack: 
     isUnlocked: 1
     endOfAttackString: 1
@@ -453,6 +459,7 @@ MonoBehaviour:
   - AttackName: 
     nextLightAttack: 
     nextHeavyAttack: 
+    previousAttackName: 
     nextDownAttack: 
     isUnlocked: 0
     endOfAttackString: 0
@@ -471,6 +478,7 @@ MonoBehaviour:
     AttackName: 
     nextLightAttack: 
     nextHeavyAttack: 
+    previousAttackName: 
     nextDownAttack: 
     isUnlocked: 0
     endOfAttackString: 0

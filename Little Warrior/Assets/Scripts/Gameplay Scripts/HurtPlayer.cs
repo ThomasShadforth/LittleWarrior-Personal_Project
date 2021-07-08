@@ -22,18 +22,24 @@ public class HurtPlayer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            BasePlayer player = other.GetComponent<BasePlayer>();
-            if(rb.position.x < other.transform.position.x)
-            {
-                //ON LEFT
-                isOnRight = false; 
-            } else if(rb.position.x > other.transform.position.x)
-            {
-                //ON RIGHT
-                isOnRight = true;
-            }
-
-            player.applyKnockback(isOnRight, 10f, .05f);
+            
         }
+    }
+
+    public void hurtThePlayer(BasePlayer player)
+    {
+        
+        if (rb.position.x < player.transform.position.x)
+        {
+            //ON LEFT
+            isOnRight = false;
+        }
+        else if (rb.position.x > player.transform.position.x)
+        {
+            //ON RIGHT
+            isOnRight = true;
+        }
+
+        player.applyKnockback(isOnRight, 3f, .2f);
     }
 }

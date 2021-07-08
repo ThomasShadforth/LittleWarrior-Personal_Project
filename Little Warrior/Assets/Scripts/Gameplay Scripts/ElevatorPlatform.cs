@@ -7,6 +7,8 @@ public class ElevatorPlatform : MonoBehaviour
     float distanceTravelled;
     public float elevatorSpeed, distanceLimit;
     public Vector2 startPosition;
+    public bool isObstructedByObj;
+    public GameObject obstruction;
     public bool ActivateByPlayer, ActivatedBySwitch, moveVert, playerOnPlat, moveAway;
 
     void Start()
@@ -29,7 +31,21 @@ public class ElevatorPlatform : MonoBehaviour
 
         if (!ActivateByPlayer)
         {
-            movePlatform();
+            if (!isObstructedByObj)
+            {
+                movePlatform();
+            }
+            else
+            {
+                if(obstruction == null)
+                {
+                    movePlatform();
+                }
+                else
+                {
+                    return;
+                }
+            }
         }
         else if (ActivateByPlayer)
         {
