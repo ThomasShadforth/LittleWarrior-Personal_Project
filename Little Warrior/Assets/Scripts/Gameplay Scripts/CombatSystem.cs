@@ -5,6 +5,8 @@ using Cinemachine;
 
 public class CombatSystem : MonoBehaviour
 {
+    Animator animator;
+
     public CombatAttacks[] Attacks;
     public CombatAttacks currentAttack;
 
@@ -16,6 +18,9 @@ public class CombatSystem : MonoBehaviour
     public Transform attackPoint;
     bool isAttacking;
     public LayerMask enemyLayer, objectsLayer;
+    [SerializeField]
+    AttackRenderer attRender;
+
 
     CinemachineVirtualCamera cineCam;
 
@@ -25,7 +30,9 @@ public class CombatSystem : MonoBehaviour
         currentAttack = Attacks[0];
         rb = GetComponent<Rigidbody2D>();
         playerChar = GetComponent<BasePlayer>();
+        animator = GetComponent<Animator>();
         cineCam = FindObjectOfType<CinemachineVirtualCamera>();
+        
         setUpAttackLinks();
     }
 
@@ -49,6 +56,8 @@ public class CombatSystem : MonoBehaviour
             
             playerChar.setPlayerExtraSpeed(0f);
         }
+
+        
     }
 
     public void removeEndOfString(string attackName)
@@ -134,15 +143,13 @@ public class CombatSystem : MonoBehaviour
             {
                 if (attack.isUnlocked)
                 {
-                    Debug.Log(attack.AttackName);
                     currentAttack = attack;
-                    attackTime = currentAttack.attackDur;
-                    attackEnemy();
-                    checkMovement();
 
+                    attRender.setAttackArray("Heavy", attack.AttackName);
+                    attackTime = animator.GetCurrentAnimatorStateInfo(0).length;
                     if (currentAttack.endOfAttackString)
                     {
-                        currentAttack = Attacks[0];
+                        //currentAttack = Attacks[0];
                     }
                     break;
                 }
@@ -176,8 +183,10 @@ public class CombatSystem : MonoBehaviour
 
     public void checkMovement()
     {
+        Debug.Log(currentAttack.AttackName);
         if (currentAttack.willMoveHor)
         {
+            Debug.Log("MOVE");
             bonusSpeed = currentAttack.movementChange.x;
             playerChar.setPlayerExtraSpeed(bonusSpeed);
         }

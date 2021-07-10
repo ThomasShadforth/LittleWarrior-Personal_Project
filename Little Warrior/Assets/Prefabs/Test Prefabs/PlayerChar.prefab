@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8895181965766862711}
   - component: {fileID: 8895181965766862710}
   - component: {fileID: 8895181965766862713}
+  - component: {fileID: 2869884674947238446}
   - component: {fileID: 8895181965766862712}
   - component: {fileID: 8895181965766862715}
   - component: {fileID: 8895181965766862706}
@@ -166,6 +167,18 @@ MonoBehaviour:
   rb: {fileID: 0}
   speed: 0
   upgradePoints: 0
+--- !u!114 &2869884674947238446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895181965766862714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f39932aa0f838343a12ab4142951c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8895181965766862712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +240,7 @@ MonoBehaviour:
     attackDur: 0.2
     damage: 0
     canMoveWhileAttack: 0
-    movementChange: {x: 5, y: 0}
+    movementChange: {x: 3, y: 0}
     knockback:
       willKnockback: 0
       knockbackForce: {x: 0, y: 0}
@@ -296,6 +309,7 @@ MonoBehaviour:
   objectsLayer:
     serializedVersion: 2
     m_Bits: 4096
+  attRender: {fileID: 2869884674947238446}
 --- !u!114 &8895181965766862715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8895181965943969866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.110000014, y: -0.047, z: 0}
+  m_LocalPosition: {x: 0.11, y: -0.047, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8895181966743538469}

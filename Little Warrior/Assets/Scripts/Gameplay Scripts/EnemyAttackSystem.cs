@@ -33,7 +33,7 @@ public class EnemyAttackSystem : MonoBehaviour
         currentClipInfo = animator.GetCurrentAnimatorClipInfo(0);
         currentStateInfo = animator.GetCurrentAnimatorStateInfo(0);
         animTime = currentClipInfo[0].clip.length * currentStateInfo.normalizedTime;
-        Debug.Log(currentClipInfo[0].clip.length);
+        
     }
 
     private void FixedUpdate()
