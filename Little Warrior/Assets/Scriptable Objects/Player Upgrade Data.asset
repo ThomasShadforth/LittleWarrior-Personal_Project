@@ -21,11 +21,52 @@ MonoBehaviour:
     upgradeLevel: 0
     upgradeTier:
     - upgradeCost: 0
+      upgradeIncrease: 0
   - upgradeName: Dive Kick
     description: Descend quickly on enemies from above
     isUnlocked: 0
     isAttack: 1
-    unlockCost: 0
+    unlockCost: 5
     upgradeLevel: 0
     upgradeTier:
-    - upgradeCost: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+  - upgradeName: Sweep Kick
+    description: Swiftly kick in front of you, knocking the enemy upwards in the
+      process!
+    isUnlocked: 0
+    isAttack: 1
+    unlockCost: 5
+    upgradeLevel: 0
+    upgradeTier:
+    - upgradeCost: 5
+      upgradeIncrease: 0
+  - upgradeName: Attack Upgrade
+    description: Increases overall output from the power core, resulting in more
+      powerful attacks
+    isUnlocked: 0
+    isAttack: 0
+    unlockCost: 5
+    upgradeLevel: 0
+    upgradeTier:
+    - upgradeCost: 5
+      upgradeIncrease: 0
+  - upgradeName: Defense Upgrade
+    description: Reinforces the outer casing with a more durable metal, making you
+      more resilient to attacks
+    isUnlocked: 0
+    isAttack: 0
+    unlockCost: 5
+    upgradeLevel: 0
+    upgradeTier:
+    - upgradeCost: 5
+      upgradeIncrease: 0
+  - upgradeName: Health Upgrade
+    description: Descend quickly on enemies from above
+    isUnlocked: 0
+    isAttack: 0
+    unlockCost: 5
+    upgradeLevel: 0
+    upgradeTier:
+    - upgradeCost: 5
+      upgradeIncrease: 0

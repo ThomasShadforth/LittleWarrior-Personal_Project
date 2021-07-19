@@ -32,5 +32,6 @@ namespace playerUpgradeSystem
     public class upgradeLevels
     {
         public int upgradeCost;
+        public int upgradeIncrease;
     }
 }

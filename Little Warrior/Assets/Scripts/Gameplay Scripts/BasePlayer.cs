@@ -40,6 +40,14 @@ public class BasePlayer : MonoBehaviour
     const float decelRate = -(maxSpeed - (maxSpeed / 2)) / timeToDecel;
     const float friction = 2.2f;
 
+    [Header("Health Values")]
+    public float MaxHealth;
+    int healthUpgradeLevel = 0;
+    float health;
+
+    int baseAtk;
+    int playerDef;
+
     CombatSystem playerCombat;
     float extraSpeed;
     public int upgradePoints;
@@ -64,6 +72,8 @@ public class BasePlayer : MonoBehaviour
         //Used to determine the x scale of the player object
         moveInput.x = 1;
         facingRight = true;
+
+        health = MaxHealth;
     }
 
     void FixedUpdate()
@@ -280,6 +290,17 @@ public class BasePlayer : MonoBehaviour
         transform.localScale = scalar;
     }
 
+    public void dealDamage(float damageVal)
+    {
+        health -= damageVal;
+
+        if(health <= 0)
+        {
+            //Insert Death Anim Here
+            //Reload the level/load game over screen
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         if(playerFeet != null)
@@ -305,6 +326,26 @@ public class BasePlayer : MonoBehaviour
         {
             animator.SetBool("isJumping", false);
             animator.SetBool("isFalling", false);
+        }
+    }
+
+    public void upgradeStat(string statName, int statIncrease)
+    {
+        switch (statName)
+        {
+            case "Health":
+                MaxHealth += statIncrease;
+                healthUpgradeLevel++;
+                break;
+            case "Attack":
+                baseAtk += statIncrease;
+                break;
+            case "Defense":
+                playerDef += statIncrease;
+                break;
+            default:
+                Debug.Log("UPGRADE DOES NOT EXIST");
+                break;
         }
     }
 }

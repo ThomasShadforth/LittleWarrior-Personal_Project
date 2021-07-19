@@ -28,4 +28,9 @@ public class RuntimeUpgradeData : MonoBehaviour
     {
         
     }
+
+    public void updateUpgradeCost(int upgradeIndex)
+    {
+        upgradeInfo[upgradeIndex].unlockCost = upgradeInfo[upgradeIndex].upgradeTier[upgradeInfo[upgradeIndex].upgradeLevel].upgradeCost;
+    }
 }

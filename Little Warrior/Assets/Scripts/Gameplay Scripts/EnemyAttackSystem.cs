@@ -58,7 +58,7 @@ public class EnemyAttackSystem : MonoBehaviour
         foreach(Collider2D player in hitPlayer)
         {
 
-            hurtPlayer.hurtThePlayer(player.GetComponent<BasePlayer>());
+            hurtPlayer.hurtThePlayer(player.GetComponent<BasePlayer>(), 20f);
 
             shakeCamera(.1f);
             if (endVal == 0)

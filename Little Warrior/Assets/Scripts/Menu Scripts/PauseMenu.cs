@@ -45,6 +45,11 @@ public class PauseMenu : MonoBehaviour
                 windows[i].SetActive(true);
                 EventSystem.current.SetSelectedGameObject(null);
                 EventSystem.current.SetSelectedGameObject(selectedButton[i]);
+                if (windows[i].name == "UpgradeMenu")
+                {
+                    GetComponent<UpgradeMenu>().updateUpgradePoints();
+                    GetComponent<UpgradeMenu>().selectUpgrade(0);
+                }
             }
             else
             {

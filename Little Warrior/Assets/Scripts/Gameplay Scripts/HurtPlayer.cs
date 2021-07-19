@@ -18,15 +18,9 @@ public class HurtPlayer : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            
-        }
-    }
 
-    public void hurtThePlayer(BasePlayer player)
+
+    public void hurtThePlayer(BasePlayer player, float damage)
     {
         
         if (rb.position.x < player.transform.position.x)
@@ -39,7 +33,7 @@ public class HurtPlayer : MonoBehaviour
             //ON RIGHT
             isOnRight = true;
         }
-
+        player.dealDamage(damage);
         player.applyKnockback(isOnRight, 3f, .2f);
     }
 }

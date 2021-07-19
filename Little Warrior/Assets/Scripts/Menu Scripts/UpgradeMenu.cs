@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UpgradeMenu : MonoBehaviour
 {
-    public Text upgradeName, upgradeDesc, upgradeCostText, upgradeButtonText;
+    public Text upgradeName, upgradeDesc, upgradeCostText, upgradeButtonText, upgradePointText;
     public Button upgradeButton;
     public RuntimeUpgradeData upgradeData;
     bool isUnlocked;
@@ -41,7 +41,7 @@ public class UpgradeMenu : MonoBehaviour
         selectedIndex = upgradeIndex;
         //if the player has enough points for an upgrade, the text will be displayed normally
         //If not, then the button will be greyed out
-        if(BasePlayer.instance.upgradePoints >= upgradeData.upgradeInfo[upgradeIndex].unlockCost)
+        if(GameManager.instance.getUpgradePoints() >= upgradeData.upgradeInfo[upgradeIndex].unlockCost)
         {
             upgradeButton.interactable = true;
             upgradeButton.image.color = Color.white;
@@ -55,48 +55,83 @@ public class UpgradeMenu : MonoBehaviour
 
     public void upgradeTrigger()
     {
+        //gets the upgrade information from the upgrade data, such as the selected upgrade and whether it has already been unlocked
         playerUpgradeSystem.playerUpgrade upgraded = upgradeData.upgradeInfo[selectedIndex];
         isUnlocked = upgraded.isUnlocked;
         
+        //Check for whether or not the upgrade has already been unlocked
         if (isUnlocked)
         {
-            if (upgraded.isAttack)
-            {
 
-            }
-            else
-            {
-
-            }
-        }
-        else
-        {
+            //If it is unlocked
             if (upgraded.isAttack)
             {
                 CombatSystem playerCombat = BasePlayer.instance.GetComponent<CombatSystem>();
+
                 foreach(CombatAttacks attack in playerCombat.Attacks)
                 {
                     if(attack.AttackName == upgraded.upgradeName)
                     {
-                        Debug.Log("UPGRADE FOUND");
-                        attack.isUnlocked = true;
-                        playerCombat.removeEndOfString(attack.previousAttackName);
-                        attack.endOfAttackString = true;
-                        return;
-                    }
-                    else
-                    {
-                        Debug.Log("ATTACK NOT FOUND");
+                        if (GameManager.instance.getUpgradePoints() > upgraded.unlockCost)
+                        {
+                            attack.damage += upgraded.upgradeTier[upgraded.upgradeLevel].upgradeIncrease;
+                        }
                     }
                 }
             }
             else
             {
-
+                BasePlayer.instance.upgradeStat(upgraded.upgradeName, upgraded.upgradeTier[upgraded.upgradeLevel].upgradeIncrease);
             }
-                //Trigger the unlock function here
-                //(Note, will need a check to determine if the unlocked upgrade was a stat upgrade or a combat move, perhaps add a boolean to the upgrade information that helps to provide this)
+        }
+        else
+        {
+            //If the upgrade isn't unlocked
+            if (upgraded.isAttack)
+            {
+                //If the upgrade is an attack, get the combat system and store it in a variable
+                CombatSystem playerCombat = BasePlayer.instance.GetComponent<CombatSystem>();
+                //Necessary in order to cycle through the player's attacks to find the upgrade
+                foreach(CombatAttacks attack in playerCombat.Attacks)
+                {
+                    if(attack.AttackName == upgraded.upgradeName)
+                    {
+                        Debug.Log("UPGRADE FOUND");
+                        if (GameManager.instance.getUpgradePoints() > upgraded.unlockCost)
+                        {
+                            attack.isUnlocked = true;
+                            upgraded.isUnlocked = true;
+                            playerCombat.removeEndOfString(attack.previousAttackName);
+                            attack.endOfAttackString = true;
+                            Debug.Log(upgraded.unlockCost);
+                            GameManager.instance.updateUpgradePoints(-upgraded.unlockCost);
+                            updateUpgradePoints();
+                            return;
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+            }
+            else
+            {
+                upgraded.isUnlocked = true;
+                BasePlayer.instance.upgradeStat(upgraded.upgradeName, upgraded.upgradeTier[upgraded.upgradeLevel].upgradeIncrease);
+                upgradeData.updateUpgradeCost(selectedIndex);
+            }
+                
         } 
         
+    }
+
+    public void updateUpgradePoints()
+    {
+        upgradePointText.text = "Upgrade Points: " + GameManager.instance.getUpgradePoints();
     }
 }

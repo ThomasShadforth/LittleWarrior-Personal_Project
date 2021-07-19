@@ -30,7 +30,14 @@ public class EnemyAi : MonoBehaviour
     public bool directionLook;
     public bool isAttacking;
 
+    [Header("Enemy Stats")]
+    public float MaxHealth;
+    public int awardedUpgradePoints;
+    float health;
+
     public bool isGrounded;
+    public bool isKnocked;
+    public float knockTime;
     [SerializeField]
     Transform enemyFeet;
 
@@ -43,7 +50,7 @@ public class EnemyAi : MonoBehaviour
         animator = GetComponent<Animator>();
         InvokeRepeating("UpdatePath", 0f, .25f);
 
-        
+        health = MaxHealth;
     }
 
     void UpdatePath()
@@ -76,11 +83,31 @@ public class EnemyAi : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-        if(FollowEnabled && TargetInDistance())
+
+        if (isAttacking)
+        {
+            return;  
+        }
+
+        if (isKnocked)
+        {
+            if(knockTime > 0)
+            {
+                knockTime -= Time.deltaTime;
+                return;
+            }
+            else
+            {
+                isKnocked = false;
+            }
+        }
+
+        if (FollowEnabled && TargetInDistance())
         {
             pathFollow();
         }
 
+        
 
         if (TargetInAttackRange())
         {
@@ -96,10 +123,7 @@ public class EnemyAi : MonoBehaviour
             return;
         }
 
-        if (isAttacking)
-        {
-            return;
-        }
+        
 
         if (currentWaypoint >= path.vectorPath.Count)
         {
@@ -195,5 +219,24 @@ public class EnemyAi : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, activateDistance);
+    }
+
+
+
+
+    public void dealDamage(float damage)
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            //Play Death Anim, then destroy
+            Invoke("DestroyEnemy", .7f);
+        }
+    }
+
+    private void DestroyEnemy()
+    {
+        GameManager.instance.updateUpgradePoints(awardedUpgradePoints);
+        Destroy(this.gameObject);
     }
 }

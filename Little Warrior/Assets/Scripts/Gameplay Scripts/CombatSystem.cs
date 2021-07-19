@@ -115,19 +115,14 @@ public class CombatSystem : MonoBehaviour
                 {
                     isAttacking = true;
                     currentAttack = attack;
-                    
-                    attackTime = currentAttack.attackDur;
 
-                    attackEnemy();
+                    attRender.setAttackArray("Light", attack.AttackName);
+                    attackTime = animator.GetCurrentAnimatorStateInfo(0).length;
 
-                    checkMovement();
-
-                    
-
+                   
                     if (currentAttack.endOfAttackString)
                     {
-                        currentAttack = Attacks[0];
-                        return;
+                        
                     }
                     break;
                 }
@@ -144,6 +139,9 @@ public class CombatSystem : MonoBehaviour
                 if (attack.isUnlocked)
                 {
                     currentAttack = attack;
+
+                    //checkMovement();
+                    //attackEnemy();
 
                     attRender.setAttackArray("Heavy", attack.AttackName);
                     attackTime = animator.GetCurrentAnimatorStateInfo(0).length;
@@ -166,13 +164,14 @@ public class CombatSystem : MonoBehaviour
                 if (attack.isUnlocked)
                 {
                     currentAttack = attack;
-                    attackTime = currentAttack.attackDur;
-                    attackEnemy();
-                    checkMovement();
+
+                    attRender.setAttackArray("Down", attack.AttackName);
+                    attackTime = animator.GetCurrentAnimatorStateInfo(0).length;
+                    
 
                     if (currentAttack.endOfAttackString)
                     {
-                        currentAttack = Attacks[0];
+                        //currentAttack = Attacks[0];
                     }
 
                     break;
@@ -204,7 +203,7 @@ public class CombatSystem : MonoBehaviour
         foreach(Collider2D detectedEnemy in hitEnemies)
         {
             HurtEnemy damagedEnemy = detectedEnemy.GetComponent<HurtEnemy>();
-            
+            damagedEnemy.hurtEnemyFunc(currentAttack.knockback.willKnockback, 20, currentAttack.knockback.knockbackForce, transform);
             shakeCamera(.1f);
 
         }

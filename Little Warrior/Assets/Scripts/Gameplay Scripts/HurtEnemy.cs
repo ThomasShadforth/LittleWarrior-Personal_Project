@@ -6,6 +6,7 @@ using Cinemachine;
 public class HurtEnemy : MonoBehaviour
 {
     public bool beingKnocked;
+    EnemyAi enemy;
     float knockDur;
     Rigidbody2D rb;
 
@@ -15,7 +16,7 @@ public class HurtEnemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+        enemy = GetComponent<EnemyAi>();
     }
 
     // Update is called once per frame
@@ -24,34 +25,32 @@ public class HurtEnemy : MonoBehaviour
         
     }
 
-    public void hurtEnemyFunc(bool willDealKnock, float damage, float screenShakeIntensity, Vector2 knockback, Transform playerPos)
+    public void hurtEnemyFunc(bool willDealKnock, float damage, Vector2 knockback, Transform playerPos)
     {
         if (willDealKnock)
         {
+            enemy.isKnocked = true;
             if(playerPos.position.x < rb.position.x)
             {
-                
+                rb.velocity = new Vector2(knockback.x, rb.velocity.y);  
             }
             else
             {
-
+                rb.velocity = new Vector2(-knockback.x, rb.velocity.y);
             }
 
             if(playerPos.position.y > rb.position.y)
             {
-
+                rb.velocity = new Vector2(rb.velocity.x, -knockback.y);
             }
             else
             {
-
+                rb.velocity = new Vector2(rb.velocity.x, knockback.y);
             }
         }
 
         //Add damage to enemy here
-
-        
-        
-        Invoke("DestroyEnemy", .7f);
+        enemy.dealDamage(damage);
         
     }
 
