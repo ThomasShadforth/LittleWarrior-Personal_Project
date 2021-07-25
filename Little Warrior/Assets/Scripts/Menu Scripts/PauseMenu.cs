@@ -2,18 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu instance;
 
     public GameObject pauseMenu;
 
     public GameObject[] windows;
     public GameObject[] selectedButton;
+
+    public ButtonImage[] upgradeButtons;
+    public Sprite[] upgradeButtonSprites;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+
+
+    }
+
     void Start()
     {
-        
+        /*foreach(ButtonImage button in upgradeButtons)
+        {
+            button.GetComponent<Button>().image.sprite = setButtonSprite(GetComponent<UpgradeMenu>().upgradeData.upgradeInfo[button.UpgradeIndex].upgradeName);
+        }*/
     }
 
     // Update is called once per frame
@@ -63,5 +86,18 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
 
         GamePause.gamePaused = false;
+    }
+
+    public Sprite setButtonSprite(string upgradeName)
+    {
+        foreach(Sprite buttonSprite in upgradeButtonSprites)
+        {
+            if (buttonSprite.name.Contains(upgradeName))
+            {
+                return buttonSprite;
+            }
+        }
+
+        return null;
     }
 }
