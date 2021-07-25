@@ -62,6 +62,7 @@ public class UpgradeMenu : MonoBehaviour
         //Check for whether or not the upgrade has already been unlocked
         if (isUnlocked)
         {
+            Debug.Log("UNLOCKED");
 
             //If it is unlocked
             if (upgraded.isAttack)
@@ -89,6 +90,7 @@ public class UpgradeMenu : MonoBehaviour
             //If the upgrade isn't unlocked
             if (upgraded.isAttack)
             {
+                
                 //If the upgrade is an attack, get the combat system and store it in a variable
                 CombatSystem playerCombat = BasePlayer.instance.GetComponent<CombatSystem>();
                 //Necessary in order to cycle through the player's attacks to find the upgrade
