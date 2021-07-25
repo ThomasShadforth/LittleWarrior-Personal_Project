@@ -185,7 +185,7 @@ public class CombatSystem : MonoBehaviour
         Debug.Log(currentAttack.AttackName);
         if (currentAttack.willMoveHor)
         {
-            Debug.Log("MOVE");
+            
             bonusSpeed = currentAttack.movementChange.x;
             playerChar.setPlayerExtraSpeed(bonusSpeed);
         }

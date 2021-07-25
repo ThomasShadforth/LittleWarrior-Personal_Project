@@ -24,7 +24,7 @@ MonoBehaviour:
       upgradeIncrease: 0
   - upgradeName: Dive Kick
     description: Descend quickly on enemies from above
-    isUnlocked: 0
+    isUnlocked: 1
     isAttack: 1
     unlockCost: 5
     upgradeLevel: 0
@@ -62,7 +62,8 @@ MonoBehaviour:
     - upgradeCost: 5
       upgradeIncrease: 0
   - upgradeName: Health Upgrade
-    description: Descend quickly on enemies from above
+    description: Increase maximum energy capacity, allowing for longer periods of
+      survival
     isUnlocked: 0
     isAttack: 0
     unlockCost: 5

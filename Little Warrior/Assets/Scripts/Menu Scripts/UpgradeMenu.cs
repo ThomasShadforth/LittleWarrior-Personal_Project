@@ -34,10 +34,9 @@ public class UpgradeMenu : MonoBehaviour
         //Description
         //Cost
         //Whether or not the upgrade can be bought (This will be reflected in the button colour/text)
-        Debug.Log("Upgrade in slot " + upgradeIndex);
         upgradeName.text = "" + upgradeData.upgradeInfo[upgradeIndex].upgradeName;
         upgradeDesc.text = "" + upgradeData.upgradeInfo[upgradeIndex].description;
-        upgradeCostText.text = "" + upgradeData.upgradeInfo[upgradeIndex].unlockCost.ToString();
+        upgradeCostText.text = "" + upgradeData.upgradeInfo[upgradeIndex].unlockCost.ToString() + "Upgrade Points";
         selectedIndex = upgradeIndex;
         //if the player has enough points for an upgrade, the text will be displayed normally
         //If not, then the button will be greyed out
@@ -45,11 +44,20 @@ public class UpgradeMenu : MonoBehaviour
         {
             upgradeButton.interactable = true;
             upgradeButton.image.color = Color.white;
+            if (upgradeData.upgradeInfo[upgradeIndex].isUnlocked)
+            {
+                upgradeButtonText.text = "Upgrade";
+            }
+            else
+            {
+                upgradeButtonText.text = "Unlock";
+            }
         }
         else
         {
             upgradeButton.interactable = false;
             upgradeButton.image.color = Color.red;
+            upgradeButtonText.text = "Cannot Unlock";
         }
     }
 
@@ -75,6 +83,7 @@ public class UpgradeMenu : MonoBehaviour
                         if (GameManager.instance.getUpgradePoints() > upgraded.unlockCost)
                         {
                             attack.damage += upgraded.upgradeTier[upgraded.upgradeLevel].upgradeIncrease;
+                            
                         }
                     }
                 }
@@ -86,6 +95,7 @@ public class UpgradeMenu : MonoBehaviour
         }
         else
         {
+            Debug.Log("NOT UNLOCKED");
             //If the upgrade isn't unlocked
             if (upgraded.isAttack)
             {
@@ -123,6 +133,8 @@ public class UpgradeMenu : MonoBehaviour
             {
                 upgraded.isUnlocked = true;
                 BasePlayer.instance.upgradeStat(upgraded.upgradeName, upgraded.upgradeTier[upgraded.upgradeLevel].upgradeIncrease);
+                GameManager.instance.updateUpgradePoints(-upgraded.unlockCost);
+                updateUpgradePoints();
                 upgradeData.updateUpgradeCost(selectedIndex);
             }
                 
