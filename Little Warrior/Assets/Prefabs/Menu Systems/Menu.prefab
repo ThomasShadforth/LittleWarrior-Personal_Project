@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 1866570878878805827}
   - component: {fileID: 5653540867346515294}
   - component: {fileID: 3688728314916293897}
-  - component: {fileID: 9104734493235723504}
   m_Layer: 5
   m_Name: Example Upgrade Button 2 (1)
   m_TagString: Untagged
@@ -116,8 +115,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: 285.00003}
-  m_SizeDelta: {x: 160, y: 160}
+  m_AnchoredPosition: {x: 48, y: 339.00003}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1866570878878805827
 CanvasRenderer:
@@ -180,7 +179,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -207,24 +206,11 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9104734493235723504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1901556416485474629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b18a4663ecd3b5d46a3fa5b1b05a3b14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeIndex: 2
 --- !u!1 &2185325909443609056
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +223,6 @@ GameObject:
   - component: {fileID: 1207383314604800067}
   - component: {fileID: 1491585031784123310}
   - component: {fileID: 1763093016512721452}
-  - component: {fileID: 8228191660106723890}
   m_Layer: 5
   m_Name: Example Upgrade Button 2 (2)
   m_TagString: Untagged
@@ -262,8 +247,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -260.00003, y: 81}
-  m_SizeDelta: {x: 160, y: 160}
+  m_AnchoredPosition: {x: -260.00003, y: 135}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1207383314604800067
 CanvasRenderer:
@@ -326,7 +311,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -358,19 +343,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8228191660106723890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2185325909443609056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b18a4663ecd3b5d46a3fa5b1b05a3b14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeIndex: 4
 --- !u!1 &2402313836848642112
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +355,6 @@ GameObject:
   - component: {fileID: 9200042613768910286}
   - component: {fileID: 153991366545795465}
   - component: {fileID: 7654480143773941038}
-  - component: {fileID: 1153284005624210616}
   m_Layer: 5
   m_Name: Example Upgrade Button 1 (1)
   m_TagString: Untagged
@@ -408,8 +379,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -556, y: 79.99997}
-  m_SizeDelta: {x: 160, y: 160}
+  m_AnchoredPosition: {x: -556, y: 133.99997}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9200042613768910286
 CanvasRenderer:
@@ -472,7 +443,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -504,19 +475,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1153284005624210616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2402313836848642112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b18a4663ecd3b5d46a3fa5b1b05a3b14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeIndex: 3
 --- !u!1 &3451459845266609189
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,9 +553,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: Button
 --- !u!1 &3952252678843360879
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,9 +632,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: Button
 --- !u!1 &4618082764669973669
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,9 +711,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: Button
 --- !u!1 &5232676560734967808
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +724,6 @@ GameObject:
   - component: {fileID: 5780692216590252078}
   - component: {fileID: 607800701172029808}
   - component: {fileID: 7966909381377203051}
-  - component: {fileID: 5631951229891175316}
   m_Layer: 5
   m_Name: Example Upgrade Button 2 (3)
   m_TagString: Untagged
@@ -797,8 +748,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: 81}
-  m_SizeDelta: {x: 160, y: 160}
+  m_AnchoredPosition: {x: 48, y: 135}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5780692216590252078
 CanvasRenderer:
@@ -861,7 +812,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -893,19 +844,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5631951229891175316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5232676560734967808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b18a4663ecd3b5d46a3fa5b1b05a3b14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeIndex: 5
 --- !u!1 &6227893005563023337
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,9 +922,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: Button
 --- !u!1 &7497210036965460615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,19 +1468,6 @@ MonoBehaviour:
   - {fileID: 7497210038168169114}
   - {fileID: 7497210038682029117}
   - {fileID: 7497210037995043965}
-  UpgradeMenubuttons:
-  - {fileID: 2222287873878870179}
-  - {fileID: 2368157881612775601}
-  - {fileID: 9104734493235723504}
-  - {fileID: 1153284005624210616}
-  - {fileID: 8228191660106723890}
-  - {fileID: 5631951229891175316}
-  upgradeButtonSprites:
-  - {fileID: 21300000, guid: a730ab0622731f4458e71f5c1ebd9ce3, type: 3}
-  - {fileID: 21300000, guid: d966ad740d0766849be15ab87743bda0, type: 3}
-  - {fileID: 21300000, guid: 667c636de375f0a44bc1c3c47e3fb2be, type: 3}
-  - {fileID: 21300000, guid: 446bcd5e4fed5014b8c37b1b76c6f2a2, type: 3}
-  - {fileID: 21300000, guid: 9d806da1845b7284f9b0056ea56b7333, type: 3}
 --- !u!114 &7497210037304198053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1669,7 +1592,6 @@ GameObject:
   - component: {fileID: 7497210037489480333}
   - component: {fileID: 7497210037489480332}
   - component: {fileID: 7497210037489480331}
-  - component: {fileID: 2222287873878870179}
   m_Layer: 5
   m_Name: Example Upgrade Button 1
   m_TagString: Untagged
@@ -1694,8 +1616,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -556, y: 284}
-  m_SizeDelta: {x: 160, y: 160}
+  m_AnchoredPosition: {x: -556, y: 338}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7497210037489480333
 CanvasRenderer:
@@ -1758,7 +1680,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1790,19 +1712,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2222287873878870179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7497210037489480329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b18a4663ecd3b5d46a3fa5b1b05a3b14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeIndex: 0
 --- !u!1 &7497210037513859437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,9 +1790,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: Button
 --- !u!1 &7497210037633251834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2319,7 +2226,6 @@ GameObject:
   - component: {fileID: 7497210038015806615}
   - component: {fileID: 7497210038015806614}
   - component: {fileID: 7497210038015806613}
-  - component: {fileID: 2368157881612775601}
   m_Layer: 5
   m_Name: Example Upgrade Button 2
   m_TagString: Untagged
@@ -2344,8 +2250,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -260.00003, y: 285}
-  m_SizeDelta: {x: 160, y: 160}
+  m_AnchoredPosition: {x: -260.00003, y: 339}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7497210038015806615
 CanvasRenderer:
@@ -2408,7 +2314,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2440,19 +2346,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2368157881612775601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7497210038015806611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b18a4663ecd3b5d46a3fa5b1b05a3b14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeIndex: 1
 --- !u!1 &7497210038024113895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,9 +2503,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: Button
 --- !u!1 &7497210038168169114
 GameObject:
   m_ObjectHideFlags: 0

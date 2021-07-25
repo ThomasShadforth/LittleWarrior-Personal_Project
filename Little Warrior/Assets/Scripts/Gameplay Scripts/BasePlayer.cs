@@ -333,14 +333,14 @@ public class BasePlayer : MonoBehaviour
     {
         switch (statName)
         {
-            case "Health Upgrade":
+            case "Health":
                 MaxHealth += statIncrease;
                 healthUpgradeLevel++;
                 break;
-            case "Attack Upgrade":
+            case "Attack":
                 baseAtk += statIncrease;
                 break;
-            case "Defense Upgrade":
+            case "Defense":
                 playerDef += statIncrease;
                 break;
             default:
