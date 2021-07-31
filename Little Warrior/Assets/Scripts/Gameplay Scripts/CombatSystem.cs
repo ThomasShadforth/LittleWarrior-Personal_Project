@@ -81,7 +81,7 @@ public class CombatSystem : MonoBehaviour
 
             for(int j = Attacks.Length - 1; j >= 0; j--)
             {
-                if(nameOfAttack == Attacks[j].nextLightAttack || nameOfAttack == Attacks[j].nextHeavyAttack)
+                if(nameOfAttack == Attacks[j].nextLightAttack || nameOfAttack == Attacks[j].nextHeavyAttack || nameOfAttack == Attacks[j].nextDownAttack)
                 {
                     Attacks[i].previousAttackName = Attacks[j].AttackName;
                 }
@@ -93,7 +93,7 @@ public class CombatSystem : MonoBehaviour
     //Each branch will execute the corresponding attack check for the button (Light, Heavy, downAttack, etc if there are any more)
     public void checkForAttackInput()
     {
-        if (Input.GetButtonDown("LightAtt"))
+        if (Input.GetButtonDown("LightAtt") && !Input.GetButton("Down"))
         {
             checkLightAttack();
         } else if (Input.GetButtonDown("HeavyAtt"))
@@ -144,6 +144,7 @@ public class CombatSystem : MonoBehaviour
                     //attackEnemy();
 
                     attRender.setAttackArray("Heavy", attack.AttackName);
+
                     attackTime = animator.GetCurrentAnimatorStateInfo(0).length;
                     if (currentAttack.endOfAttackString)
                     {
@@ -157,6 +158,7 @@ public class CombatSystem : MonoBehaviour
 
     public void checkDownAttack()
     {
+        
         foreach (CombatAttacks attack in Attacks)
         {
             if (currentAttack.nextDownAttack == attack.AttackName)
@@ -164,6 +166,7 @@ public class CombatSystem : MonoBehaviour
                 if (attack.isUnlocked)
                 {
                     currentAttack = attack;
+                    
 
                     attRender.setAttackArray("Down", attack.AttackName);
                     attackTime = animator.GetCurrentAnimatorStateInfo(0).length;

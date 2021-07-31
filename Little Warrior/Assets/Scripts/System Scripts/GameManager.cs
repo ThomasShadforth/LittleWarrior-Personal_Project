@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     int upgradePoints;
+    public int remainingLives;
 
 
     // Start is called before the first frame update

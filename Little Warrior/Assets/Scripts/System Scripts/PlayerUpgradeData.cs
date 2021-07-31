@@ -22,6 +22,7 @@ namespace playerUpgradeSystem
         public string description;
         public bool isUnlocked;
         public bool isAttack;
+        public bool isStarterAttack;
         public int unlockCost;
         public int upgradeLevel;
 

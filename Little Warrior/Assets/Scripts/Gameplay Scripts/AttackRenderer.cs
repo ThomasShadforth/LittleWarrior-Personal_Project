@@ -7,7 +7,7 @@ public class AttackRenderer : MonoBehaviour
     public static readonly string idleState = "Idle";
     public static readonly string[] lightAttacks = {"Punch"};
     public static readonly string[] heavyAttacks = {"Kick", "Rising Uppercut", "Dive Kick" };
-    public static readonly string[] downAttacks = {"Slide", "Sweep Kick" };
+    public static readonly string[] downAttacks = {"Slide Kick", "Sweep Kick" };
 
     Animator animator;
     BasePlayer player;
@@ -43,6 +43,7 @@ public class AttackRenderer : MonoBehaviour
 
     public void playAttackAnim(string name, string[] attacks)
     {
+        
         for(int i = 0; i < attacks.Length; i++)
         {
             if(name == attacks[i])

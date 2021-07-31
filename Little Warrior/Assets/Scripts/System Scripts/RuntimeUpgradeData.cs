@@ -15,6 +15,21 @@ public class RuntimeUpgradeData : MonoBehaviour
         {
             upgradeInfo[i].upgradeLevel = 0;
             upgradeInfo[i].unlockCost = upgradeInfo[i].upgradeTier[upgradeInfo[i].upgradeLevel].upgradeCost;
+            if (upgradeInfo[i].isAttack)
+            {
+                if (upgradeInfo[i].isStarterAttack)
+                {
+                    upgradeInfo[i].isUnlocked = true;
+                }
+                else
+                {
+                    upgradeInfo[i].isUnlocked = false;
+                }
+            }
+            else
+            {
+                upgradeInfo[i].isUnlocked = false;
+            }
         }
     }
 

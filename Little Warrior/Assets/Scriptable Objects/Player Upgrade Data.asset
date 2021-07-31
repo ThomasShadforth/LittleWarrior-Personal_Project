@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrades:
   - upgradeName: Slide Kick
-    description: A fast-acting sweep attack that staggers enemies
+    description: A fast-acting sweep attack that staggers enemies (Hold down and
+      press Light Attack Button after a Sweep Kick)
     isUnlocked: 0
     isAttack: 1
+    isStarterAttack: 0
     unlockCost: 0
     upgradeLevel: 0
     upgradeTier:
@@ -24,18 +26,30 @@ MonoBehaviour:
       upgradeIncrease: 0
   - upgradeName: Dive Kick
     description: Descend quickly on enemies from above
-    isUnlocked: 1
+    isUnlocked: 0
     isAttack: 1
+    isStarterAttack: 0
     unlockCost: 5
     upgradeLevel: 0
     upgradeTier:
     - upgradeCost: 5
       upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 3
+    - upgradeCost: 5
+      upgradeIncrease: 3
+    - upgradeCost: 5
+      upgradeIncrease: 6
+    - upgradeCost: 5
+      upgradeIncrease: 6
+    - upgradeCost: 5
+      upgradeIncrease: 9
   - upgradeName: Sweep Kick
     description: Swiftly kick in front of you, knocking the enemy upwards in the
-      process!
+      process! (Hold down + press Light Attack Button)
     isUnlocked: 0
     isAttack: 1
+    isStarterAttack: 0
     unlockCost: 5
     upgradeLevel: 0
     upgradeTier:
@@ -46,27 +60,121 @@ MonoBehaviour:
       powerful attacks
     isUnlocked: 0
     isAttack: 0
+    isStarterAttack: 0
     unlockCost: 5
     upgradeLevel: 0
     upgradeTier:
     - upgradeCost: 5
-      upgradeIncrease: 0
+      upgradeIncrease: 2
+    - upgradeCost: 5
+      upgradeIncrease: 2
+    - upgradeCost: 10
+      upgradeIncrease: 4
+    - upgradeCost: 15
+      upgradeIncrease: 6
+    - upgradeCost: 20
+      upgradeIncrease: 8
+    - upgradeCost: 30
+      upgradeIncrease: 16
   - upgradeName: Defense Upgrade
     description: Reinforces the outer casing with a more durable metal, making you
       more resilient to attacks
-    isUnlocked: 1
+    isUnlocked: 0
     isAttack: 0
+    isStarterAttack: 0
     unlockCost: 5
     upgradeLevel: 0
     upgradeTier:
     - upgradeCost: 5
       upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
   - upgradeName: Health Upgrade
-    description: Descend quickly on enemies from above
-    isUnlocked: 1
+    description: Increase maximum power capacity, allowing you to survive longer
+    isUnlocked: 0
     isAttack: 0
+    isStarterAttack: 0
     unlockCost: 5
     upgradeLevel: 0
     upgradeTier:
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+  - upgradeName: Punch
+    description: A basic jab attack (Press Light Attack Button)
+    isUnlocked: 1
+    isAttack: 1
+    isStarterAttack: 1
+    unlockCost: 5
+    upgradeLevel: 0
+    upgradeTier:
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+  - upgradeName: Kick
+    description: A kick that slightly thrusts you forward (Press Heavy Attack)
+    isUnlocked: 1
+    isAttack: 1
+    isStarterAttack: 1
+    unlockCost: 5
+    upgradeLevel: 0
+    upgradeTier:
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+  - upgradeName: Rising Uppercut
+    description: A punch that propels you into the air, hitting enemies on the way
+      up (Press heavy attack after punching)
+    isUnlocked: 1
+    isAttack: 1
+    isStarterAttack: 1
+    unlockCost: 5
+    upgradeLevel: 0
+    upgradeTier:
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
+    - upgradeCost: 5
+      upgradeIncrease: 0
     - upgradeCost: 5
       upgradeIncrease: 0

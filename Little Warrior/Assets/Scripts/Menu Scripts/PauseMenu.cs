@@ -15,6 +15,8 @@ public class PauseMenu : MonoBehaviour
 
     public ButtonImage[] upgradeButtons;
     public Sprite[] upgradeButtonSprites;
+
+    public Text characterHealth, characterAttack, characterDefense;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -33,10 +35,10 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        /*foreach(ButtonImage button in upgradeButtons)
+        foreach(ButtonImage button in upgradeButtons)
         {
             button.GetComponent<Button>().image.sprite = setButtonSprite(GetComponent<UpgradeMenu>().upgradeData.upgradeInfo[button.UpgradeIndex].upgradeName);
-        }*/
+        }
     }
 
     // Update is called once per frame
@@ -48,6 +50,7 @@ public class PauseMenu : MonoBehaviour
             {
                 pauseMenu.SetActive(true);
                 loadPanel(0);
+                updateCharacterDetails();
                 GamePause.gamePaused = true;
                 
             }
@@ -72,6 +75,9 @@ public class PauseMenu : MonoBehaviour
                 {
                     GetComponent<UpgradeMenu>().updateUpgradePoints();
                     GetComponent<UpgradeMenu>().selectUpgrade(0);
+                } else if(windows[i].name == "CharacterMenu")
+                {
+                    updateCharacterDetails();
                 }
             }
             else
@@ -90,8 +96,19 @@ public class PauseMenu : MonoBehaviour
 
     public Sprite setButtonSprite(string upgradeName)
     {
-        foreach(Sprite buttonSprite in upgradeButtonSprites)
+        /*foreach(Sprite buttonSprite in upgradeButtonSprites)
         {
+            
+            if (buttonSprite.name.Contains(upgradeName))
+            {
+                
+                return buttonSprite;
+            }
+        }*/
+
+        for(int i = 0; i < upgradeButtonSprites.Length; i++)
+        {
+            Sprite buttonSprite = upgradeButtonSprites[i];
             if (buttonSprite.name.Contains(upgradeName))
             {
                 return buttonSprite;
@@ -99,5 +116,12 @@ public class PauseMenu : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void updateCharacterDetails()
+    {
+        characterHealth.text = BasePlayer.instance.health + " / " + BasePlayer.instance.MaxHealth;
+        characterAttack.text = "" + BasePlayer.instance.baseAtk;
+        characterDefense.text = "" + BasePlayer.instance.playerDef;
     }
 }

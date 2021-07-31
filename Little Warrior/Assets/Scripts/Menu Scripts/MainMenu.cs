@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject MainMenuScreen, OptionsMenu, FirstSelectedMenu, FirstSelectedOptions, OptionsClosedButton;
+    //Stores references to different areas of the main menu
+    public GameObject MainMenuScreen, OptionsMenu, FirstSelectedMenu, FirstSelectedOptions, OptionsClosedButton, gameTitleScreen;
 
+    //Is the menu open
     bool menuActive;
 
+    //Animates the transitions for the options menu
     public Animator optionsAnimator;
 
     // Start is called before the first frame update
@@ -21,6 +24,7 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If a key is pressed and the menu isn't active, open the main menu
         if (Input.anyKey)
         {
             if (!menuActive)
@@ -30,29 +34,32 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    //Load the first level
     public void startGame()
     {
         StartCoroutine(gameStart());
     }
 
+    //Executes a menu coroutine that hides the title and displays the menu options
     public void OpenMainMenu()
     {
-        menuActive = true;
-        MainMenuScreen.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(null);
-
-        EventSystem.current.SetSelectedGameObject(FirstSelectedMenu);
+        StartCoroutine(OpenMenu());
+        
     }
 
+    //opens/closes the options menu depending on whether it is currently open
     public void OpenCloseOptions()
     {
         if (!OptionsMenu.activeInHierarchy)
         {
+            //set animator parameter to true
             optionsAnimator.SetBool("isLoading", true);
+            //Set the menu to active
             OptionsMenu.SetActive(true);
 
+            //Clear the currently selected object
             EventSystem.current.SetSelectedGameObject(null);
-
+            //Set the selected object to the default selection for the options menu
             EventSystem.current.SetSelectedGameObject(FirstSelectedOptions);
 
             return;
@@ -69,6 +76,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    //Quits the game
     public void CloseGame()
     {
         StartCoroutine(quitCo());
@@ -80,6 +88,8 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+
+    //Clears the selected button, and sets it to the options button when the main menu is available again
     public IEnumerator closeOptions()
     {
         EventSystem.current.SetSelectedGameObject(null);
@@ -88,6 +98,7 @@ public class MainMenu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(OptionsClosedButton);
     }
 
+    //Fade to black, then load the scene before fading into it
     public IEnumerator gameStart()
     {
         UIFade.instance.fadeToBlack();
@@ -96,4 +107,19 @@ public class MainMenu : MonoBehaviour
         UIFade.instance.fadeFromBlack();
     }
 
+    
+    public IEnumerator OpenMenu()
+    {
+        //Set isPressed to true
+        gameTitleScreen.GetComponent<Animator>().SetBool("isPressed", true);
+        //Wait for a second for the title to disappear
+        yield return new WaitForSeconds(1f);
+        //Set the title to inactive, and set the main menu to being active
+        gameTitleScreen.SetActive(false);
+        menuActive = true;
+        MainMenuScreen.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+
+        EventSystem.current.SetSelectedGameObject(FirstSelectedMenu);
+    }
 }

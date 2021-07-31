@@ -43,10 +43,13 @@ public class BasePlayer : MonoBehaviour
     [Header("Health Values")]
     public float MaxHealth;
     int healthUpgradeLevel = 0;
-    float health;
+    public float health;
 
-    int baseAtk;
-    int playerDef;
+    [Header("Base Stats")]
+    [SerializeField]
+    public int baseAtk;
+    [SerializeField]
+    public int playerDef;
 
     CombatSystem playerCombat;
     float extraSpeed;
@@ -333,14 +336,14 @@ public class BasePlayer : MonoBehaviour
     {
         switch (statName)
         {
-            case "Health":
+            case "Health Upgrade":
                 MaxHealth += statIncrease;
                 healthUpgradeLevel++;
                 break;
-            case "Attack":
+            case "Attack Upgrade":
                 baseAtk += statIncrease;
                 break;
-            case "Defense":
+            case "Defense Upgrade":
                 playerDef += statIncrease;
                 break;
             default:
@@ -348,4 +351,6 @@ public class BasePlayer : MonoBehaviour
                 break;
         }
     }
+
+    
 }

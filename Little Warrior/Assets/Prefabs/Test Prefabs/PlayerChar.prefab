@@ -246,7 +246,10 @@ MonoBehaviour:
   playerFeet: {fileID: 8895181965847395389}
   rb: {fileID: 0}
   speed: 0
-  MaxHealth: 0
+  MaxHealth: 100
+  health: 0
+  baseAtk: 0
+  playerDef: 0
   upgradePoints: 0
 --- !u!114 &2869884674947238446
 MonoBehaviour:
@@ -337,7 +340,7 @@ MonoBehaviour:
     willMoveHor: 1
     willMoveVert: 1
     attackDur: 1
-    damage: 0
+    damage: 20
     canMoveWhileAttack: 0
     movementChange: {x: 2, y: 5}
     knockback:
