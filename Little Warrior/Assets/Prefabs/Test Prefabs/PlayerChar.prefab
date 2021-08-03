@@ -248,8 +248,8 @@ MonoBehaviour:
   speed: 0
   MaxHealth: 100
   health: 0
-  baseAtk: 0
-  playerDef: 0
+  baseAtk: 10
+  playerDef: 10
   upgradePoints: 0
 --- !u!114 &2869884674947238446
 MonoBehaviour:
@@ -308,9 +308,9 @@ MonoBehaviour:
     canMoveWhileAttack: 0
     movementChange: {x: 2, y: 0}
     knockback:
-      willKnockback: 0
-      knockbackForce: {x: 0, y: 0}
-      knockbackDur: 0
+      willKnockback: 1
+      knockbackForce: {x: 1, y: 0.2}
+      knockbackDur: 0.3
       knockbackDirection: 0
   - AttackName: Kick
     nextLightAttack: 
@@ -322,13 +322,13 @@ MonoBehaviour:
     willMoveHor: 1
     willMoveVert: 0
     attackDur: 0.2
-    damage: 0
+    damage: 25
     canMoveWhileAttack: 0
     movementChange: {x: 3, y: 0}
     knockback:
-      willKnockback: 0
-      knockbackForce: {x: 0, y: 0}
-      knockbackDur: 0
+      willKnockback: 1
+      knockbackForce: {x: 2, y: 1}
+      knockbackDur: 0.2
       knockbackDirection: 0
   - AttackName: Rising Uppercut
     nextLightAttack: 
@@ -380,7 +380,7 @@ MonoBehaviour:
     canMoveWhileAttack: 0
     movementChange: {x: 1, y: -1}
     knockback:
-      willKnockback: 0
+      willKnockback: 1
       knockbackForce: {x: 0, y: 0}
       knockbackDur: 0
       knockbackDirection: 0

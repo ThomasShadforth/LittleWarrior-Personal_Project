@@ -6,6 +6,11 @@ public class CheckpointSystem : MonoBehaviour
 {
     //Used to determine if the checkpoint has been set
     bool checkpointSet;
+
+    public bool endOfLevel;
+
+    public GameObject playTestMenu;
+
     Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -34,8 +39,16 @@ public class CheckpointSystem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.GetComponent<CheckpointHandler>().checkpointPos = transform.position;
-            checkpointSet = true;
+            if (!endOfLevel)
+            {
+                GameManager.instance.GetComponent<CheckpointHandler>().checkpointPos = transform.position;
+                checkpointSet = true;
+            }
+            else
+            {
+                playTestMenu.SetActive(true);
+                GamePause.gamePaused = true;
+            }
         }
     }
 }

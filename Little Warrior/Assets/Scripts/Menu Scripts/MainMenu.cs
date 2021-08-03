@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     //Stores references to different areas of the main menu
-    public GameObject MainMenuScreen, OptionsMenu, FirstSelectedMenu, FirstSelectedOptions, OptionsClosedButton, gameTitleScreen;
+    public GameObject MainMenuScreen, OptionsMenu, FirstSelectedMenu, FirstSelectedOptions, FirstSelectedHTP, OptionsClosedButton, gameTitleScreen, howToPlayMenu;
 
     //Is the menu open
     bool menuActive;
@@ -76,6 +76,21 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public void openCloseHowToPlay()
+    {
+        if (!howToPlayMenu.activeInHierarchy)
+        {
+            howToPlayMenu.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(FirstSelectedHTP);
+        }
+        else
+        {
+            StartCoroutine(closeHowToPlay());
+            
+        }
+    }
+
     //Quits the game
     public void CloseGame()
     {
@@ -96,6 +111,14 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(1f);
         OptionsMenu.SetActive(false);
         EventSystem.current.SetSelectedGameObject(OptionsClosedButton);
+    }
+
+    public IEnumerator closeHowToPlay()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForSeconds(.1f);
+        howToPlayMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(FirstSelectedMenu);
     }
 
     //Fade to black, then load the scene before fading into it

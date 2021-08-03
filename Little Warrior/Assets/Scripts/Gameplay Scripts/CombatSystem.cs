@@ -185,10 +185,8 @@ public class CombatSystem : MonoBehaviour
 
     public void checkMovement()
     {
-        Debug.Log(currentAttack.AttackName);
         if (currentAttack.willMoveHor)
         {
-            Debug.Log("MOVE");
             bonusSpeed = currentAttack.movementChange.x;
             playerChar.setPlayerExtraSpeed(bonusSpeed);
         }
@@ -206,7 +204,7 @@ public class CombatSystem : MonoBehaviour
         foreach(Collider2D detectedEnemy in hitEnemies)
         {
             HurtEnemy damagedEnemy = detectedEnemy.GetComponent<HurtEnemy>();
-            damagedEnemy.hurtEnemyFunc(currentAttack.knockback.willKnockback, 20, currentAttack.knockback.knockbackForce, transform);
+            damagedEnemy.hurtEnemyFunc(currentAttack.knockback.willKnockback, currentAttack.damage, currentAttack.knockback.knockbackForce, transform, currentAttack.knockback.knockbackDur);
             shakeCamera(.1f);
 
         }

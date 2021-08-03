@@ -41,6 +41,8 @@ public class EnemyAi : MonoBehaviour
     [SerializeField]
     Transform enemyFeet;
 
+    Vector2 knockbackForce;
+
     public float overlapCheck = .4f;
     public LayerMask whatIsGround;
     void Start()
@@ -84,7 +86,7 @@ public class EnemyAi : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        if (isAttacking)
+        if (isAttacking && !isKnocked)
         {
             return;  
         }
@@ -93,18 +95,31 @@ public class EnemyAi : MonoBehaviour
         {
             if(knockTime > 0)
             {
+                
+                animator.SetBool("isHurt", true);
+                
                 knockTime -= Time.deltaTime;
                 return;
             }
             else
             {
+                animator.SetBool("isHurt", false);
                 isKnocked = false;
             }
         }
 
         if (FollowEnabled && TargetInDistance())
         {
-            pathFollow();
+            if (!isKnocked)
+            {
+                pathFollow();
+            }
+            else
+            {
+
+                
+            }
+            
         }
 
         
@@ -222,7 +237,11 @@ public class EnemyAi : MonoBehaviour
     }
 
 
-
+    public void setKnock(Vector2 knockForce, float knockDur)
+    {
+        knockbackForce = knockForce;
+        knockTime = knockDur;
+    }
 
     public void dealDamage(float damage)
     {

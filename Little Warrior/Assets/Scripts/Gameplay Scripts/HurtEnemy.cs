@@ -25,14 +25,15 @@ public class HurtEnemy : MonoBehaviour
         
     }
 
-    public void hurtEnemyFunc(bool willDealKnock, float damage, Vector2 knockback, Transform playerPos)
+    public void hurtEnemyFunc(bool willDealKnock, float damage, Vector2 knockback, Transform playerPos, float knockDuration)
     {
         if (willDealKnock)
         {
+            
             enemy.isKnocked = true;
-            if(playerPos.position.x < rb.position.x)
+            /*if(playerPos.position.x < rb.position.x)
             {
-                rb.velocity = new Vector2(knockback.x, rb.velocity.y);  
+                rb.AddForce(new Vector2(knockback.x, )); 
             }
             else
             {
@@ -46,7 +47,20 @@ public class HurtEnemy : MonoBehaviour
             else
             {
                 rb.velocity = new Vector2(rb.velocity.x, knockback.y);
+            }*/
+
+            if(playerPos.position.x > rb.position.x)
+            {
+                knockback.x = -knockback.x;
             }
+
+            if(playerPos.position.y > rb.position.y)
+            {
+                knockback.y = -knockback.y;
+            }
+
+            enemy.setKnock(knockback, knockDuration);
+
         }
 
         //Add damage to enemy here
