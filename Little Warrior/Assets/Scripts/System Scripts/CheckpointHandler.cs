@@ -28,7 +28,10 @@ public class CheckpointHandler : MonoBehaviour
         }
         else
         {
-            BasePlayer.instance.transform.position = checkpointPos;
+            if (SceneManager.GetActiveScene().name != "Tutorial Level")
+            {
+                BasePlayer.instance.transform.position = checkpointPos;
+            }
         }
     }
 
@@ -48,13 +51,20 @@ public class CheckpointHandler : MonoBehaviour
 
     public void checkForFirstSpawn()
     {
-        checkpointPos = GameObject.Find("First_Spawn").transform.position;
-        firstLoad = true;
+        if (SceneManager.GetActiveScene().name != "Tutorial Level")
+        {
+            
+            checkpointPos = GameObject.Find("First_Spawn").transform.position;
+            firstLoad = true;
+        }
     }
 
     void setStartPos()
     {
-        BasePlayer.instance.transform.position = checkpointPos;
+        if (SceneManager.GetActiveScene().name != "Tutorial Level")
+        {
+            BasePlayer.instance.transform.position = checkpointPos;
+        }
     }
 
     

@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     public void updateUpgradePoints(int pointChange)
     {
         upgradePoints += pointChange;
-        Debug.Log(upgradePoints);
+
     }
 
     public int getUpgradePoints()

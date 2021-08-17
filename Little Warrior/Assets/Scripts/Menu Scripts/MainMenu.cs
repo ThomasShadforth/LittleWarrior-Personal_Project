@@ -29,6 +29,7 @@ public class MainMenu : MonoBehaviour
         {
             if (!menuActive)
             {
+                SoundManager.instance.playSFX("Button");
                 OpenMainMenu();
             }
         }
@@ -37,6 +38,7 @@ public class MainMenu : MonoBehaviour
     //Load the first level
     public void startGame()
     {
+        SoundManager.instance.playSFX("Button");
         StartCoroutine(gameStart());
     }
 
@@ -50,6 +52,7 @@ public class MainMenu : MonoBehaviour
     //opens/closes the options menu depending on whether it is currently open
     public void OpenCloseOptions()
     {
+        SoundManager.instance.playSFX("Button");
         if (!OptionsMenu.activeInHierarchy)
         {
             //set animator parameter to true
@@ -78,6 +81,7 @@ public class MainMenu : MonoBehaviour
 
     public void openCloseHowToPlay()
     {
+        SoundManager.instance.playSFX("Button");
         if (!howToPlayMenu.activeInHierarchy)
         {
             howToPlayMenu.SetActive(true);
@@ -94,6 +98,7 @@ public class MainMenu : MonoBehaviour
     //Quits the game
     public void CloseGame()
     {
+        SoundManager.instance.playSFX("Button");
         StartCoroutine(quitCo());
     }
 

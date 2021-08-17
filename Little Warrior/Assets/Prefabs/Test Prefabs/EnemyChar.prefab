@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  activateDistance: 3
+  activateDistance: 2
   speed: 40
   nextWaypoint: 1.5
   jumpNodeHeightReq: 0.5
@@ -288,8 +288,8 @@ MonoBehaviour:
   FollowEnabled: 1
   directionLook: 1
   isAttacking: 0
-  MaxHealth: 0
-  awardedUpgradePoints: 0
+  MaxHealth: 40
+  awardedUpgradePoints: 10
   isGrounded: 0
   isKnocked: 0
   knockTime: 0

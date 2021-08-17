@@ -5,7 +5,7 @@ using UnityEngine;
 public class CheckpointSystem : MonoBehaviour
 {
     //Used to determine if the checkpoint has been set
-    bool checkpointSet;
+    public bool checkpointSet;
 
     public bool endOfLevel;
 
@@ -35,7 +35,7 @@ public class CheckpointSystem : MonoBehaviour
 
     //If the player enters the radius, then set the gameManager's checkpointPos (For respawns) to the position of this object
     //Set checkpointSet to true
-    private void OnTriggerEnter2D(Collider2D other)
+    public virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {

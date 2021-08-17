@@ -46,6 +46,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetButtonDown("Pause"))
         {
+            
             if (!pauseMenu.activeInHierarchy)
             {
                 pauseMenu.SetActive(true);
@@ -56,6 +57,7 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
+                SoundManager.instance.playSFX("Button");
                 resumeGame();
             }
         }
@@ -63,7 +65,8 @@ public class PauseMenu : MonoBehaviour
 
     public void loadPanel(int windowIndex)
     {
-        for(int i = 0; i < windows.Length; i++)
+        SoundManager.instance.playSFX("Button");
+        for (int i = 0; i < windows.Length; i++)
         {
             
             if(i == windowIndex)
