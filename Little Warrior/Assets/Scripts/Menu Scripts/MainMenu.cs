@@ -129,10 +129,12 @@ public class MainMenu : MonoBehaviour
     //Fade to black, then load the scene before fading into it
     public IEnumerator gameStart()
     {
+        UIFade.instance.UIFadeImage.gameObject.SetActive(true);
         UIFade.instance.fadeToBlack();
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         UIFade.instance.fadeFromBlack();
+        
     }
 
     

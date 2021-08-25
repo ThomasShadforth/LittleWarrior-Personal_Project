@@ -23,6 +23,8 @@ public class UIFade : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+
+        
     }
 
     // Update is called once per frame
@@ -30,21 +32,25 @@ public class UIFade : MonoBehaviour
     {
         if (shouldFadeFromBlack)
         {
+            
             UIFadeImage.color = new Color(UIFadeImage.color.r, UIFadeImage.color.g, UIFadeImage.color.b, Mathf.MoveTowards(UIFadeImage.color.a, 0f, 2 * Time.deltaTime));
 
             if(UIFadeImage.color.a == 0)
             {
+                UIFadeImage.gameObject.SetActive(false);
                 shouldFadeFromBlack = false;
             }
         }
 
         if (shouldFadeToBlack)
         {
+            UIFadeImage.gameObject.SetActive(true);
             UIFadeImage.color = new Color(UIFadeImage.color.r, UIFadeImage.color.g, UIFadeImage.color.b, Mathf.MoveTowards(UIFadeImage.color.a, 1f, 2 * Time.deltaTime));
 
             if (UIFadeImage.color.a == 1)
             {
                 shouldFadeToBlack = false;
+                
             }
         }
     }

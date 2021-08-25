@@ -51,6 +51,10 @@ public class BasePlayer : MonoBehaviour
     [SerializeField]
     public int playerDef;
 
+    [Header("Player Audio")]
+    public AudioClip[] playerSFX;
+    AudioSource _as;
+
     CombatSystem playerCombat;
     float extraSpeed;
     public int upgradePoints;
@@ -71,6 +75,7 @@ public class BasePlayer : MonoBehaviour
         //Get the rigidbody, animator and combat components
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        _as = GetComponent<AudioSource>();
         playerCombat = GetComponent<CombatSystem>();
         //Used to determine the x scale of the player object
         moveInput.x = 1;
@@ -299,11 +304,21 @@ public class BasePlayer : MonoBehaviour
     public void dealDamage(float damageVal)
     {
         health -= damageVal;
+        GameplayUI.instance.updatePlayerHealthBar();
 
         if(health <= 0)
         {
+            GameManager.instance.remainingLives--;
+
             //Insert Death Anim Here
-            //Reload the level/load game over screen
+            if(GameManager.instance.remainingLives <= 0)
+            {
+                GameManager.instance.loadGameOver();
+            }
+            else
+            {
+                GameManager.instance.reloadAfterDeath();
+            }
         }
     }
 
@@ -350,10 +365,14 @@ public class BasePlayer : MonoBehaviour
                 playerDef += statIncrease;
                 break;
             default:
-                Debug.Log("UPGRADE DOES NOT EXIST");
+                
                 break;
         }
     }
 
-    
+    public void playSFX(int soundID)
+    {
+        _as.clip = playerSFX[soundID];
+        _as.Play();
+    }
 }

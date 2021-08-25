@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class NewParallaxController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class NewParallaxController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        camera = FindObjectOfType<CinemachineVirtualCamera>().gameObject;
         startPos = transform.position.x;
         length = GetComponent<SpriteRenderer>().bounds.size.x;
     }

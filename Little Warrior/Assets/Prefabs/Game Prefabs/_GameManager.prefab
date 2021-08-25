@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d59acd572178346aea1d4648236a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerChar: {fileID: 0}
+  menuUI: {fileID: 0}
+  remainingLives: 3
+  indexToReload: 0
+  essentialLoaderObject: {fileID: 2532352437243267689, guid: cb95a13062c5d624ab79d6435b4c580b, type: 3}
 --- !u!114 &7625090323299973315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,3 +61,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8485bc150eff449895e805154a20c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpointPos: {x: 0, y: 0}

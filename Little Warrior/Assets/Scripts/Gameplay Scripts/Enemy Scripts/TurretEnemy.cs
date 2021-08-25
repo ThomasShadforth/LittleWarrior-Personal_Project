@@ -29,6 +29,7 @@ public class TurretEnemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         currentTimer = rateOfFire;
+        target = BasePlayer.instance.transform;
     }
 
     // Update is called once per frame
@@ -39,7 +40,7 @@ public class TurretEnemy : MonoBehaviour
             return;
         }
 
-        if (playerInRange)
+        if (playerInRange && BasePlayer.instance.health > 0)
         {
             if (delayTime <= 0)
             {
@@ -56,7 +57,7 @@ public class TurretEnemy : MonoBehaviour
             }
         }
 
-        if (Vector2.Distance(target.transform.position, transform.position) <= detectRadius)
+        if (Vector2.Distance(target.transform.position, transform.position) <= detectRadius && BasePlayer.instance.health > 0)
         {
             if (!playerInRange)
             {

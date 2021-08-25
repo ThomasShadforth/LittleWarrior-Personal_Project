@@ -7,7 +7,8 @@ public class CheckpointHandler : MonoBehaviour
 {
     public Vector2 checkpointPos;
 
-    bool firstLoad;
+    public bool firstLoad;
+    bool firstPos;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -23,8 +24,9 @@ public class CheckpointHandler : MonoBehaviour
     {
         if (!firstLoad)
         {
+
+            StartCoroutine(setStartCo());
             
-            checkForFirstSpawn();
         }
         else
         {
@@ -37,8 +39,8 @@ public class CheckpointHandler : MonoBehaviour
 
     void Start()
     {
-
-        Invoke("setStartPos", .2f);
+        
+        
     }
 
     // Update is called once per frame
@@ -51,21 +53,21 @@ public class CheckpointHandler : MonoBehaviour
 
     public void checkForFirstSpawn()
     {
-        if (SceneManager.GetActiveScene().name != "Tutorial Level")
-        {
-            
-            checkpointPos = GameObject.Find("First_Spawn").transform.position;
-            firstLoad = true;
-        }
+        checkpointPos = GameObject.Find("First_Spawn").transform.position;
+        firstLoad = true;
+
     }
 
-    void setStartPos()
+    
+
+    public IEnumerator setStartCo()
     {
+        checkForFirstSpawn();
+        yield return new WaitForSeconds(0.1f);
         if (SceneManager.GetActiveScene().name != "Tutorial Level")
         {
             BasePlayer.instance.transform.position = checkpointPos;
         }
     }
-
     
 }

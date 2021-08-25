@@ -50,6 +50,7 @@ MonoBehaviour:
   _soundtracks:
   - {fileID: 8300000, guid: f9a02448e3d6c604ab4b2cdb80273d87, type: 3}
   - {fileID: 8300000, guid: a8c6c3ba54e3bb545b7ca674c83a118b, type: 3}
+  - {fileID: 8300000, guid: 105d1153f5ea6c14eb7e0845f1da3d52, type: 3}
   _soundEffects:
   - {fileID: 8300000, guid: f7a126f4f455db54b938de44f4ba5607, type: 3}
   - {fileID: 8300000, guid: 7dad6c0cef8de8f4fad916f183d1a9be, type: 3}

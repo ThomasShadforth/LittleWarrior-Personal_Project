@@ -99,16 +99,6 @@ public class PauseMenu : MonoBehaviour
 
     public Sprite setButtonSprite(string upgradeName)
     {
-        /*foreach(Sprite buttonSprite in upgradeButtonSprites)
-        {
-            
-            if (buttonSprite.name.Contains(upgradeName))
-            {
-                
-                return buttonSprite;
-            }
-        }*/
-
         for(int i = 0; i < upgradeButtonSprites.Length; i++)
         {
             Sprite buttonSprite = upgradeButtonSprites[i];

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckpointSystem : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class CheckpointSystem : MonoBehaviour
     public GameObject playTestMenu;
 
     Animator animator;
+
+    bool loadStart;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,9 +49,15 @@ public class CheckpointSystem : MonoBehaviour
             }
             else
             {
-                playTestMenu.SetActive(true);
-                GamePause.gamePaused = true;
+                if (!loadStart)
+                {
+                    loadStart = true;
+                    GameManager.instance.loadLevel();
+                }
+                
             }
         }
     }
+
+    
 }

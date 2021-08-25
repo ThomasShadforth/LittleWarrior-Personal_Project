@@ -22,6 +22,8 @@ public class SoundManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+
+        playMusic();
     }
 
     private void OnEnable()
@@ -31,7 +33,12 @@ public class SoundManager : MonoBehaviour
 
     void onSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        foreach(AudioClip song in _soundtracks)
+        playMusic();
+    }
+
+    public void playMusic()
+    {
+        foreach (AudioClip song in _soundtracks)
         {
             if (SceneManager.GetActiveScene().name.Contains(song.name))
             {
@@ -41,7 +48,6 @@ public class SoundManager : MonoBehaviour
             }
         }
     }
-
 
     public void playSFX(string FXName)
     {

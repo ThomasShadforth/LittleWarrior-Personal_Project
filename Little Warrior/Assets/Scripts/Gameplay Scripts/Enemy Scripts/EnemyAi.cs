@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.SceneManagement;
 
 public class EnemyAi : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class EnemyAi : MonoBehaviour
     [Header("Enemy Stats")]
     public float MaxHealth;
     public int awardedUpgradePoints;
-    float health;
+    public float health;
 
     public bool isGrounded;
     public bool isKnocked;
@@ -45,6 +46,11 @@ public class EnemyAi : MonoBehaviour
 
     public float overlapCheck = .4f;
     public LayerMask whatIsGround;
+
+    [SerializeField]
+    EnemyUI attachedUI;
+
+    bool targetAndUISet;
     void Start()
     {
         seeker = GetComponent<Seeker>();
@@ -53,7 +59,11 @@ public class EnemyAi : MonoBehaviour
         InvokeRepeating("UpdatePath", 0f, .25f);
 
         health = MaxHealth;
+
+        
     }
+
+    
 
     void UpdatePath()
     {
@@ -80,11 +90,19 @@ public class EnemyAi : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
             return;
         }
+
+        if(target.GetComponent<BasePlayer>().health <= 0)
+        {
+            return;
+        }
+
         else
         {
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+
+        
 
         if (isAttacking && !isKnocked)
         {
@@ -116,6 +134,15 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!targetAndUISet)
+        {
+            target = FindObjectOfType<BasePlayer>().transform;
+            attachedUI = GetComponentInChildren<EnemyUI>();
+            targetAndUISet = true;
+        }
+    }
     void LateUpdate()
     {
         if (isKnocked)
@@ -132,6 +159,7 @@ public class EnemyAi : MonoBehaviour
             {
                 animator.SetBool("isHurt", false);
                 isKnocked = false;
+                rb.velocity = Vector3.zero;
             }
         }
     }
@@ -253,6 +281,7 @@ public class EnemyAi : MonoBehaviour
     public void dealDamage(float damage)
     {
         health -= damage;
+        attachedUI.updateHealth();
         if(health <= 0)
         {
             //Play Death Anim, then destroy
