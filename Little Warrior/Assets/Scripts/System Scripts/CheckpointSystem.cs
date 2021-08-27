@@ -8,7 +8,7 @@ public class CheckpointSystem : MonoBehaviour
     //Used to determine if the checkpoint has been set
     public bool checkpointSet;
 
-    public bool endOfLevel;
+    public bool endOfLevel, playTestEnd;
 
     public GameObject playTestMenu;
 
@@ -20,6 +20,8 @@ public class CheckpointSystem : MonoBehaviour
     {
         //Get animator component
         animator = GetComponent<Animator>();
+
+        
     }
 
     // Update is called once per frame
@@ -34,6 +36,15 @@ public class CheckpointSystem : MonoBehaviour
         {
             animator.SetBool("isSet", false);
         }
+
+        if (playTestEnd)
+        {
+            if (playTestMenu == null)
+            {
+
+                playTestMenu = PauseMenu.instance.playtestWindow;
+            }
+        }
     }
 
     //If the player enters the radius, then set the gameManager's checkpointPos (For respawns) to the position of this object
@@ -47,7 +58,12 @@ public class CheckpointSystem : MonoBehaviour
                 GameManager.instance.GetComponent<CheckpointHandler>().checkpointPos = transform.position;
                 checkpointSet = true;
             }
-            else
+            else if(endOfLevel && playTestEnd)
+            {
+                playTestMenu.SetActive(true);
+                GamePause.gamePaused = true;
+            }
+            else if(endOfLevel && !playTestEnd)
             {
                 if (!loadStart)
                 {

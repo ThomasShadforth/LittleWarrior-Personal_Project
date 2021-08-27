@@ -17,6 +17,10 @@ public class PauseMenu : MonoBehaviour
     public Sprite[] upgradeButtonSprites;
 
     public Text characterHealth, characterAttack, characterDefense;
+
+    //Temporary (For playtests only!)
+    public GameObject playtestWindow;
+
     // Start is called before the first frame update
     private void Awake()
     {

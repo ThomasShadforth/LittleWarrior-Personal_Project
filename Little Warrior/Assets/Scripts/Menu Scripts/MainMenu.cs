@@ -42,6 +42,12 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(gameStart());
     }
 
+    public void startTutorial()
+    {
+        SoundManager.instance.playSFX("Button");
+        StartCoroutine(loadTutorial());
+    }
+
     //Executes a menu coroutine that hides the title and displays the menu options
     public void OpenMainMenu()
     {
@@ -108,6 +114,14 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public IEnumerator loadTutorial()
+    {
+        UIFade.instance.UIFadeImage.gameObject.SetActive(true);
+        UIFade.instance.fadeToBlack();
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        UIFade.instance.fadeFromBlack();
+    }
 
     //Clears the selected button, and sets it to the options button when the main menu is available again
     public IEnumerator closeOptions()
@@ -132,7 +146,7 @@ public class MainMenu : MonoBehaviour
         UIFade.instance.UIFadeImage.gameObject.SetActive(true);
         UIFade.instance.fadeToBlack();
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         UIFade.instance.fadeFromBlack();
         
     }

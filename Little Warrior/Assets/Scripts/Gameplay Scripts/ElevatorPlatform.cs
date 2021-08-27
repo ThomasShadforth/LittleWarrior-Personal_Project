@@ -8,8 +8,10 @@ public class ElevatorPlatform : MonoBehaviour
     public float elevatorSpeed, distanceLimit;
     public Vector2 startPosition;
     public bool isObstructedByObj;
-    public GameObject obstruction;
+    public GameObject obstruction, target;
     public bool ActivateByPlayer, ActivatedBySwitch, moveVert, playerOnPlat, moveAway;
+
+    Vector3 offset;
 
     void Start()
     {
@@ -96,6 +98,23 @@ public class ElevatorPlatform : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerOnPlat = true;
+            target = other.gameObject;
+            
+            offset = target.transform.position - transform.position;
+            
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        target = null;
+    }
+
+    private void LateUpdate()
+    {
+        if(target != null)
+        {
+            target.transform.position = transform.position + offset;
         }
     }
 }

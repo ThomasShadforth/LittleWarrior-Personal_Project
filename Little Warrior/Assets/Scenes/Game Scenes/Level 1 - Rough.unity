@@ -282,6 +282,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0}
   isObstructedByObj: 0
   obstruction: {fileID: 0}
+  target: {fileID: 0}
   ActivateByPlayer: 0
   ActivatedBySwitch: 0
   moveVert: 1
@@ -824,6 +825,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0}
   isObstructedByObj: 0
   obstruction: {fileID: 0}
+  target: {fileID: 0}
   ActivateByPlayer: 0
   ActivatedBySwitch: 0
   moveVert: 1
@@ -1631,6 +1633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointSet: 0
   endOfLevel: 0
+  playTestEnd: 0
   playTestMenu: {fileID: 0}
 --- !u!58 &583564214
 CircleCollider2D:
@@ -3203,6 +3206,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0}
   isObstructedByObj: 1
   obstruction: {fileID: 605955072}
+  target: {fileID: 0}
   ActivateByPlayer: 0
   ActivatedBySwitch: 0
   moveVert: 1
@@ -3693,6 +3697,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7497210037304198063, guid: f796f95677fad154abbcff372d74b802, type: 3}
+      propertyPath: playtestWindow
+      value: 
+      objectReference: {fileID: 353084850}
     - target: {fileID: 7497210037347467016, guid: f796f95677fad154abbcff372d74b802, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 5.7995605
@@ -3996,6 +4004,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0}
   isObstructedByObj: 0
   obstruction: {fileID: 0}
+  target: {fileID: 0}
   ActivateByPlayer: 0
   ActivatedBySwitch: 0
   moveVert: 1
@@ -5125,6 +5134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointSet: 0
   endOfLevel: 0
+  playTestEnd: 0
   playTestMenu: {fileID: 0}
 --- !u!58 &1644518445
 CircleCollider2D:
@@ -6144,6 +6154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointSet: 0
   endOfLevel: 1
+  playTestEnd: 0
   playTestMenu: {fileID: 353084850}
 --- !u!58 &2002373012
 CircleCollider2D:
@@ -6265,6 +6276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointSet: 0
   endOfLevel: 0
+  playTestEnd: 0
   playTestMenu: {fileID: 0}
 --- !u!58 &2035590959
 CircleCollider2D:
@@ -6520,6 +6532,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0}
   isObstructedByObj: 0
   obstruction: {fileID: 0}
+  target: {fileID: 0}
   ActivateByPlayer: 0
   ActivatedBySwitch: 0
   moveVert: 1

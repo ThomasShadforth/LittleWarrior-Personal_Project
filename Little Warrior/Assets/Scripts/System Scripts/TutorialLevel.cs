@@ -14,6 +14,7 @@ public class TutorialLevel : MonoBehaviour
 
     [SerializeField]
     GameObject[] objectsToDestroy;
+    GameObject[] tutorialObjects;
 
     [SerializeField]
     CheckpointSystem finalTutCheckpoint;

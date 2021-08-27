@@ -22,13 +22,15 @@ public class CinemachineTargetSet : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+        cam = GetComponent<CinemachineVirtualCamera>();
+        cam.Follow = FindObjectOfType<BasePlayer>().transform;
     }
 
     private void OnEnable()
     {
         
-        cam = GetComponent<CinemachineVirtualCamera>();
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
     void Start()
     {
@@ -43,6 +45,6 @@ public class CinemachineTargetSet : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        cam.Follow = BasePlayer.instance.transform;
+        
     }
 }

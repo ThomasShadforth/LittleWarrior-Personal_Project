@@ -39,6 +39,7 @@ public class BasePlayer : MonoBehaviour
     const float accelRate = (maxSpeed) / timeToReachMaxSpeed;
     const float decelRate = -(maxSpeed - (maxSpeed / 2)) / timeToDecel;
     const float friction = 2.2f;
+    public bool isOnPlatform;
 
     [Header("Health Values")]
     public float MaxHealth;

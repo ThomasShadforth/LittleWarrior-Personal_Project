@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
         return upgradePoints;
     }
 
+    //[Reloading after death, loading game over, etc]
     public void reloadAfterDeath()
     {
         
