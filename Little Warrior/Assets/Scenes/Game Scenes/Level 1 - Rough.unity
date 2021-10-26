@@ -2356,11 +2356,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &743122828 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4821639647192296871, guid: aadb4f22e37d5834d88d9cad5b8c380c, type: 3}
-  m_PrefabInstance: {fileID: 4821639647792532011}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &766226775
 GameObject:
   m_ObjectHideFlags: 0
@@ -6778,62 +6773,6 @@ PrefabInstance:
     - target: {fileID: 3862003142969666209, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862003142986325916, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: m_SortingOrder
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862003143053851450, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: m_SortingOrder
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862003143053851451, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 743122828}
-    - target: {fileID: 3862003143113889728, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862003143113889729, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 743122828}
-    - target: {fileID: 3862003143113889729, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: axisY
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862003143173522498, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862003143449834806, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862003143459166330, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862003143857089818, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: m_SortingOrder
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862003144105040066, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862003144197515242, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 743122828}
-    - target: {fileID: 3862003144197515242, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: axisY
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862003144197515245, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed141ebbfd991a42950cd7f21be3a80, type: 3}

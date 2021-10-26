@@ -4,19 +4,33 @@ using UnityEngine;
 
 public class ElevatorPlatform : MonoBehaviour
 {
+    //Measures how far the platform has travelled
     float distanceTravelled;
+    //The speed and distance limit for the platform
     public float elevatorSpeed, distanceLimit;
+    //gets the start position of the platform (For instances where the platform moves when the player is stood on it and the player leaves, resetting it)
     public Vector2 startPosition;
+    //Boolean that determines whether the platform is obstructed by an object, preventing it from moving
     public bool isObstructedByObj;
+    //stores a reference to the obstructing object, and the player (target)
     public GameObject obstruction, target;
-    public bool ActivateByPlayer, ActivatedBySwitch, moveVert, playerOnPlat, moveAway;
+    //Whether it is activated by the player, by a switch
+    public bool ActivateByPlayer, ActivatedBySwitch;
+    //whether the platform moves vertically
+    public bool moveVert;
+    //Whether the player is on the platform, whether the platform moves in the opposite direction
+    public bool playerOnPlat, moveAway;
 
+    //The offset for the player's movement while on the platform
     Vector3 offset;
 
     void Start()
     {
+        //sets the start position
         startPosition = transform.position;
 
+
+        //If this is set to true, inverts the speed of the platform
         if (moveAway)
         {
             elevatorSpeed = -(elevatorSpeed);
@@ -26,11 +40,13 @@ public class ElevatorPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if the game is paused, the platform won't move
         if (GamePause.gamePaused)
         {
             return;
         }
 
+        //If it isn't activated by the player,
         if (!ActivateByPlayer)
         {
             if (!isObstructedByObj)
