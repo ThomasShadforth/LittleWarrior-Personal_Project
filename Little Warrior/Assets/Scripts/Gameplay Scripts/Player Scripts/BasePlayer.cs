@@ -108,28 +108,39 @@ public class BasePlayer : MonoBehaviour
         //Start of Horizontal movement
         checkAnimState();
 
+        //Checks for input (Same applies to the right, but in the opposite direction)
         if (Input.GetButton("Left"))
         {
+            //Starts run animation
             animator.SetBool("isRunning", true);
+            //Flips the x scale to face left if the player is currently facing right
             if (facingRight)
             {
                 facingRight = false;
                 changeLocalScale();
                 
             }
+            //Set move input
             moveInput.x = -1;
+            //If the player's speed was greater than 0, begin deceleration
             if (speed > 0)
             {
+                //Decelerate towards the left
                 speed += decelRate * 1.9f * Time.deltaTime;
+                //Set speed to minimum if less than 0
                 if (speed < 0)
                 {
                     speed = -.5f;
                 }
             }
+            //While the speed has not reached max speed for movement to the left
             else if (speed > -maxSpeed)
             {
+                //Accelerate
                 speed -= accelRate * Time.deltaTime;
+                //Set the animation speed based on how fast the player is in relation to the max speed
                 animator.SetFloat("AnimSpeed", Mathf.Abs(speed) / maxSpeed);
+                //Set the speed to it's maximum if it exceeds it
                 if (speed <= -maxSpeed)
                 {
                     speed = -maxSpeed;
@@ -259,6 +270,7 @@ public class BasePlayer : MonoBehaviour
         transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, newZAngle);
     }
 
+    //Applies velocity to player in late update (if not being knocked back or pausing the game)
     private void LateUpdate()
     {
         if (GamePause.gamePaused)
@@ -302,16 +314,20 @@ public class BasePlayer : MonoBehaviour
         transform.localScale = scalar;
     }
 
+    //Take damage from the enemy (If hit)
     public void dealDamage(float damageVal)
     {
+        //Update health value and health bar
         health -= damageVal;
         GameplayUI.instance.updatePlayerHealthBar();
 
+        //Decrease lives if health is less or equal to 0
         if(health <= 0)
         {
             GameManager.instance.remainingLives--;
 
             //Insert Death Anim Here
+            //Game over or reload based on remaining number of lives
             if(GameManager.instance.remainingLives <= 0)
             {
                 GameManager.instance.loadGameOver();
@@ -351,6 +367,7 @@ public class BasePlayer : MonoBehaviour
         }
     }
 
+    //Used to upgrade a player's stats (If it was upgraded from the menu)
     public void upgradeStat(string statName, int statIncrease)
     {
         switch (statName)

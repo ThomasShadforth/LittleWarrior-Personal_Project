@@ -2874,6 +2874,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5107902063362348264, guid: d89bb1e5192a79e45b75cee2a915a118, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5107902064530789601, guid: d89bb1e5192a79e45b75cee2a915a118, type: 3}
       propertyPath: m_Name
       value: MenuFader

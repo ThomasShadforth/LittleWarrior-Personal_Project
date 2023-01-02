@@ -48,6 +48,9 @@ public class ParallaxController : MonoBehaviour
     void Update()
     {
         Vector2 newPos = startPosition + travel * parallaxFactor;
+
+        Debug.Log(newPos.y);
+
         transform.position = new Vector3(axisX ? newPos.x: startPosition.x, axisY? newPos.y : startPosition.y, startZ);
 
         if (InfiniteLoop)

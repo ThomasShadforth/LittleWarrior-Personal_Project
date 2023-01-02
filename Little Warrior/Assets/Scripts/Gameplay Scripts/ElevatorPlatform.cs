@@ -109,8 +109,11 @@ public class ElevatorPlatform : MonoBehaviour
         distanceTravelled += Mathf.Abs(elevatorSpeed) * Time.deltaTime;
     }
 
+    
+
     private void OnCollisionStay2D(Collision2D other)
     {
+        
         if (other.gameObject.CompareTag("Player"))
         {
             playerOnPlat = true;
